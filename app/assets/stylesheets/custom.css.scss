@@ -1,0 +1,51 @@
+@import "bootstrap";
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 60px;
+}
+
+.center {
+  text-align: center;
+}
+
+.navbar {
+  .navbar-inner {
+    background: #f61900; /* Old browsers */
+    background: -moz-linear-gradient(top, #f61900 0%, #b60404 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f61900), color-stop(100%,#b60404)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f61900 0%,#b60404 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #f61900 0%,#b60404 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #f61900 0%,#b60404 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #f61900 0%,#b60404 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f61900',    endColorstr='#b60404',GradientType=0 ); /* IE6-9 */
+    .nav {
+      a:link {color:#FFFFFF;}    
+      a:visited {color:#FFFFFF;} 
+      a:hover {color:#000000;}  
+      .active {
+        a:hover {color:#FFFFFF;} 
+      }
+    }
+  }
+}
+
+.btn-custom {
+  background-color: hsl(0, 76%, 40%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e43939", endColorstr="#b31818");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#e43939), to(#b31818));
+  background-image: -moz-linear-gradient(top, #e43939, #b31818);
+  background-image: -ms-linear-gradient(top, #e43939, #b31818);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e43939), color-stop(100%, #b31818));
+  background-image: -webkit-linear-gradient(top, #e43939, #b31818);
+  background-image: -o-linear-gradient(top, #e43939, #b31818);
+  background-image: linear-gradient(#e43939, #b31818);
+  border-color: #b31818 #b31818 hsl(0, 76%, 36%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.26);
+  -webkit-font-smoothing: antialiased;
+}

@@ -1,0 +1,50 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+*/
+
+// Navbar
+// -------------------------
+$navbarCollapseWidth:             979px !default;
+ 
+$navbarHeight:                    40px !default;
+$navbarBackgroundHighlight:       #f61900 !default;
+$navbarBackground:                #b60404 !default;
+$navbarBorder:                    darken($navbarBackground, 12%) !default;
+ 
+$navbarText:                      #FFFFFF !default;
+$navbarLinkColor:                 #FFFFFF !default;
+$navbarLinkColorHover:            darken($navbarLinkColor, 12%) !default;
+$navbarLinkColorActive:           #FFFFFF !default;
+$navbarLinkBackgroundHover:       transparent !default;
+$navbarLinkBackgroundActive:      darken($navbarBackground, 5.25%) !default;
+ 
+$navbarBrandColor:                #FFFFFF !default;
+ 
+// Inverted navbar
+$navbarInverseBackground:                #111111 !default;
+$navbarInverseBackgroundHighlight:       #222222 !default;
+$navbarInverseBorder:                    #252525 !default;
+ 
+$navbarInverseText:                      $grayLight !default;
+$navbarInverseLinkColor:                 $grayLight !default;
+$navbarInverseLinkColorHover:            $white !default;
+$navbarInverseLinkColorActive:           $navbarInverseLinkColorHover !default;
+$navbarInverseLinkBackgroundHover:       transparent !default;
+$navbarInverseLinkBackgroundActive:      $navbarInverseBackground !default;
+ 
+$navbarInverseSearchBackground:          lighten($navbarInverseBackground, 25%) !default;
+$navbarInverseSearchBackgroundFocus:     $white !default;
+$navbarInverseSearchBorder:              $navbarInverseBackground !default;
+$navbarInverseSearchPlaceholderColor:    #ccc !default;
+ 
+$navbarInverseBrandColor:                $navbarInverseLinkColor !default;

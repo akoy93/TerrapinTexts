@@ -3,7 +3,7 @@
   <h1>Welcome to Texts4Terps!</h1>
   <p>Never visit a bookstore again! Exchange textbooks directly with your fellow UMD students!</p>
   <p>
-    <a class="btn btn-custom btn-primary btn-large">
+    <a class="btn btn-inverse btn-primary btn-large">
       Connect with Facebook
     </a>
   </p>

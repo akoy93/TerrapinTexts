@@ -12,7 +12,7 @@ module ApplicationHelper
     if result && result[1] == page_title
       "<li class=\"active\">#{menu_option}</li>"
     else
-      "<li>#{menu_option}</li>"
+      menu_option
     end
   end
 end
