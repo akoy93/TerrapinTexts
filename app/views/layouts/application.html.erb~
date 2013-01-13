@@ -11,12 +11,10 @@
     <div class="navbar-inner">
       <div class="container">
         <a class="brand" href="#">Texts4Terps</a>
-        <ul class="nav">
-          <li<%=' class=active' if yield(:title) == "Home" %>><%= link_to "Home", '#' %></li>
-          <!li class="divider-vertical"><!/li>
-          <li<%=' class=active' if yield(:title) == "Buy" %>><%= link_to "Buy", '#' %></li>
-          <!li class="divider-vertical"><!/li>
-          <li<%=' class=active' if yield(:title) == "Sell" %>><%= link_to "Sell", '#' %></li>
+        <ul class="nav pull-right">
+          <li<%=' class=active' if yield(:title) == "Home" %>><%= link_to "Home", home_path %></li>
+          <li<%=' class=active' if yield(:title) == "Buy" %>><%= link_to "Buy", buy_path %></li>
+          <li<%=' class=active' if yield(:title) == "Sell" %>><%= link_to "Sell", sell_path %></li>
         </ul>
       </div>
     </div>
