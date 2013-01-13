@@ -8,6 +8,10 @@ body {
   padding-top: 60px;
 }
 
+p {
+  padding-top: 10px;
+}
+
 .center {
   text-align: center;
 }
@@ -34,6 +38,7 @@ body {
 }
 
 .btn-custom {
+  padding-top: 25px;
   background-color: hsl(0, 76%, 40%) !important;
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e43939", endColorstr="#b31818");
@@ -50,29 +55,3 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Wrapper for page content to push down footer */
-      #wrap {
-        min-height: 100%;
-        height: auto !important;
-        height: 100%;
-        /* Negative indent footer by it's height */
-        margin: 0 auto -60px;
-      }
-
-      /* Set the fixed height of the footer here */
-      #push,
-      #footer {
-        height: 60px;
-      }
-      #footer {
-        background-color: #f5f5f5;
-      }
-
-   @media (max-width: 767px) {
-        #footer {
-          margin-left: -20px;
-          margin-right: -20px;
-          padding-left: 20px;
-          padding-right: 20px;
-        }
-      }

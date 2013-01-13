@@ -1,4 +1,6 @@
 Texts4terps::Application.routes.draw do
+  get "users/new"
+
   root to: 'pages#home'
 
   match '/buy', to: 'pages#buy'
