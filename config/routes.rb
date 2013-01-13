@@ -1,4 +1,10 @@
 Texts4terps::Application.routes.draw do
+  get "pages/home"
+
+  get "pages/buy"
+
+  get "pages/sell"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
