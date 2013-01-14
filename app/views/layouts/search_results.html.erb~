@@ -1,7 +1,7 @@
 <% flash.each do |key, data| %>
   <% if key == :success %>
     <div class="container-fluid media well">
-      <h3 class="media-heading">Your search results:</h1>
+      <h4 class="media-heading">Your search results:</h1>
       <br />
       <div class="row-fluid">
         <div class="span2">
@@ -17,11 +17,7 @@
       </div>
     </div>
     <br />
-  <% elsif key == :failure || key == :error %>
-    <h1>here</h1>
-    <div class="alert alert-<%= key %>">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <%= data %>
-    </div>
+  <% elsif key == :error %>
+    <div class="alert alert-<%= key %>"><%= data %></div>
   <% end %>
 <% end %>

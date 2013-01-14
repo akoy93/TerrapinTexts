@@ -15,7 +15,7 @@ class PagesController < ApplicationController
         if data
           flash[:success] = book_query(isbn)
         else
-          flash[:error] = "ISBN #{isbn} was not found. Make sure you entered in a correct, 13 digit ISBN."
+          flash[:error] = "Unable to generate preview because ISBN #{isbn} was not found. Make sure you entered in a correct 13 digit ISBN."
         end
         redirect_to buy_path
       else
