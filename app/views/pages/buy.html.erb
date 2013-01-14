@@ -5,7 +5,7 @@
     <h2 class="center">Search for a Textbook by ISBN:</h2>
     <br />
     <%= form_tag("/search", method: "get", class: "form-search center") do %>
-      <input id="isbn" name="isbn" type="text" placeholder="Enter a 13-digit ISBN number">
+      <input id="isbn" name="isbn" type="text" placeholder="Enter a 10 or 13 digit ISBN number">
       <%= submit_tag("Search", class: "btn") %>
     <% end %>
   </div>

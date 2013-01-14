@@ -2,7 +2,7 @@
 
 <% if current_user %>
   <div class="well">
-    <h3 class="center">Search for a Textbook by ISBN:</h3>
+    <h2 class="center">Search for a Textbook by ISBN:</h2>
     <br />
     <%= form_tag("/search", method: "get", class: "form-search center") do %>
       <input id="isbn" name="isbn" type="text" placeholder="Enter a 13-digit ISBN number">

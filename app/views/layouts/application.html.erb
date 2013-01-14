@@ -11,7 +11,7 @@
   <header class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <a class="brand" href=<%= root_path %>>Texts4Terps</a>
+        <a class="brand" href=<%= root_path %>><strong>Texts4Terps</strong></a>
         <ul class="nav pull-right">
           <li<%=' class=active' if yield(:title) == "Home" %>><%= link_to "Home", root_path %></li>
           <li<%=' class=active' if yield(:title) == "Buy" %>><%= link_to "Buy", buy_path %></li>

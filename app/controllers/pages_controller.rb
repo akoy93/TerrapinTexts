@@ -15,11 +15,11 @@ class PagesController < ApplicationController
         if data
           flash[:success] = book_query(isbn)
         else
-          flash[:error] = "Unable to generate book preview because ISBN #{isbn} was not found. Make sure you entered in a correct 13 digit ISBN."
+          flash[:error] = "Unable to generate book preview because ISBN #{isbn} was not found. Make sure you entered in a correct 10 or 13 digit ISBN."
         end
         redirect_to buy_path
       else
-        flash[:error] = "#{isbn} is not a valid input. Make sure your ISBN is 13 digits long."
+        flash[:error] = "#{isbn} is not a valid input. Make sure your ISBN is 10 or 13 digits long."
         redirect_to buy_path
       end
     end
@@ -29,7 +29,7 @@ class PagesController < ApplicationController
   end
 
   def validate_isbn(isbn)
-    isbn.length == 13 && isbn =~ /\d{13}/
+    isbn.length == 13 && isbn =~ /\d{13}/ || isbn.length == 10 && isbn =~ /\d{10}/
   end
 
   def book_query(isbn)
