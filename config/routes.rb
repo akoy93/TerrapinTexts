@@ -3,6 +3,7 @@ Texts4terps::Application.routes.draw do
 
   match '/buy', to: 'pages#buy'
   match '/sell', to: 'pages#sell'
+  match '/search', to: 'pages#buy'
 
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')

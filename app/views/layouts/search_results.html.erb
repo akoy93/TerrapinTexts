@@ -1,0 +1,23 @@
+<% flash.each do |key, data| %>
+  <% if key == :success %>
+    <div class="container-fluid media well">
+      <h3 class="media-heading">Your search results:</h1>
+      <br />
+      <div class="row-fluid">
+        <div class="span2">
+          <%= image_tag data[:thumbnail].to_s, alt: "book thumbnail", class: "pull-left media-object;" %>
+        </div>
+        <div class="container span10 media-body pull-right">
+          <strong>Title:</strong> <%= data[:title].to_s + " " + data[:subtitle].to_s %><br />
+          <strong>Authors:</strong> <%= data[:authors].join(', ') %><br />
+          <strong>Publisher:</strong> <%= data[:publisher].to_s %><br />
+          <strong>Publication Year:</strong> <%= data[:publication_year].to_s %><br />
+          <strong>Description:</strong> <%= data[:description].to_s %>
+        </div>
+      </div>
+    </div>
+    <br />
+  <% elsif key == :error %>
+    <div class="alert alert-<%= key %>"><%= data %></div>
+  <% end %>
+<% end %>
