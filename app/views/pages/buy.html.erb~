@@ -1,18 +1,10 @@
 <% provide(:title, "Buy") %>
-<form class="form-search center">
-  <input type="text" placeholder="Enter a 13-digit ISBN number" class="input-large search-query">
-  <button type="submit" class="btn">Search</button>
-</form>
-
-<div class="input-append">
-  <input class="span2" id="appendedDropdownButton" type="text">
-  <div class="btn-group">
-    <button class="btn dropdown-toggle" data-toggle="dropdown">
-    <ul class="dropdown-menu">
-      <li>ISBN</li>
-      <li>Class</li>
-    </ul>
-      <span class="caret"></span>
-    </button>
-  </div>
+<div class="well">
+  <form class="form-search center">
+    <h3>Search for a Textbook by ISBN:</h3>
+    <br />
+    <input type="text" placeholder="Enter a 13-digit ISBN number" class="input-large search-query">
+    <button type="submit" class="btn">Search</button>
+  </form>
 </div>
+

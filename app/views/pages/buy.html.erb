@@ -1,6 +1,17 @@
 <% provide(:title, "Buy") %>
-<form class="form-search center">
-  <input type="text" placeholder="Enter a 13-digit ISBN number" class="input-large search-query">
-  <button type="submit" class="btn">Search</button>
-</form>
+
+<% if current_user %>
+<div class="well">
+  <form class="form-search center">
+    <h3>Search for a Textbook by ISBN:</h3>
+    <br />
+    <input type="text" placeholder="Enter a 13-digit ISBN number" class="input-large search-query">
+    <button type="submit" class="btn">Search</button>
+  </form>
+</div>
+<% else %>
+<div class="alert alert-error">
+  You must sign in with Facebook in order to access this page!
+</div>
+<% end %>
 

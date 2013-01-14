@@ -1,3 +1,10 @@
 <% provide(:title, "Sell") %>
+
+<% if current_user %>
 <h1>Pages#sell</h1>
 <p>Find me in app/views/pages/sell.html.erb</p>
+<% else %>
+<div class="alert alert-error">
+  You must sign in with Facebook in order to access this page!
+</div>
+<% end %>
