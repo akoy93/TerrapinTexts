@@ -10,7 +10,7 @@
   <header class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <a class="brand" href="#">Texts4Terps</a>
+        <a class="brand" href=<%= root_path %>>Texts4Terps</a>
         <ul class="nav pull-right">
           <li<%=' class=active' if yield(:title) == "Home" %>><%= link_to "Home", root_path %></li>
           <li<%=' class=active' if yield(:title) == "Buy" %>><%= link_to "Buy", buy_path %></li>
@@ -26,17 +26,22 @@
   </header>
   <div class="container">
     <div class="container">
+    <div class="row">
+    <div class="span6">
+    <h1 class="pull-left"><%= yield(:title) + " Textbooks" if yield(:title) != "Home" %></h1>
+    </div>
+    <div class="span6">
     <div id="user_nav" class="pull-right">
       <% if current_user %>
         Logged in as <strong><%= current_user.name %></strong>
         <%= image_tag(current_user.image, alt: "profile_picture") %>
-        <br />
-        <%= link_to "Sign out", signout_path, id: "sign_out", class: "pull-right" %>
       <% else %>
         <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
         <%= image_tag('f_logo.png', alt: "fb_icon", :size => "16x16") %>
       <% end %>
       <div class="spacer"></div>
+    </div>
+    </div>
     </div>
     </div>
     <%= yield %>
