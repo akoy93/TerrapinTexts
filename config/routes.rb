@@ -1,4 +1,6 @@
 Texts4terps::Application.routes.draw do
+  resources :textbook_listings
+
   root to: 'pages#home'
 
   match '/buy', to: 'pages#buy'

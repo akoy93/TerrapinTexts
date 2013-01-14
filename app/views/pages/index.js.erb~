@@ -1,0 +1,2 @@
+# ajax search query
+$("#search_results").html("<%= escape_javascript(render("layouts/search_results")) %>");

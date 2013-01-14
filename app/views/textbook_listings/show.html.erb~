@@ -1,0 +1,2 @@
+<h1><%= @textbook_listing.isbn =><h1>
+<h2><%= @textbook_listing.title =><h2>

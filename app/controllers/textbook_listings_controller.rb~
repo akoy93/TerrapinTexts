@@ -1,0 +1,11 @@
+class TextbookListingsController < ApplicationController
+  def add
+  end
+
+  def remove
+  end
+
+  def show
+    @textbook_listing = TextbookListing.find(params[:id])
+  end
+end
