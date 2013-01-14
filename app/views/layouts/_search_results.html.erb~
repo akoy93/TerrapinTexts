@@ -11,7 +11,7 @@
         </div>
         <div class="container span10 media-body pull-right">
           <strong>Title:</strong> <%= data[:title].to_s + " " + data[:subtitle].to_s %><br />
-          <strong>Author(s):</strong> <%= data[:authors].join(', ') %><br />
+          <strong>Authors:</strong> <%= data[:authors].join(', ') %><br />
           <strong>Publisher:</strong> <%= data[:publisher].to_s %><br />
           <strong>Publication Year:</strong> <%= data[:publication_year].to_s %><br />
           <strong>Description:</strong> <%= data[:description].to_s %>
