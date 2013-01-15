@@ -1,13 +1,15 @@
-<% unless @textbook_listing_errors.nil? %>
+<% unless params[:errors].nil? %>
   <div id="error_explanation">
     <div class="alert alert-error">
-      The form contains <%= pluralize(@textbook_listing_errors.size, "error") %>.
+      <a class="close" data-dismiss="alert" href="#">&times;</a>
+      The form contains <%= pluralize(params[:errors].size, "error") %>.
+      <br />
+      <ul>
+        <% params[:errors].each do |msg| %>
+          <li>* <%= msg %></li>
+        <% end %>
+      </ul>
     </div>
-  <ul>
-  <% @textbook_listing_errors.each do |msg| %>
-    <li>* <%= msg %></li>
-  <% end %>
-  </ul>
   </div>
 <% end %>
 

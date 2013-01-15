@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require_tree .
 
 $(function() {
@@ -25,9 +26,13 @@ $(function() {
     return false;
   });
 
-  $("form#new_textbook_listing").submit(function() {
-    alert("detected");
+  $("#new_textbook_listing").submit(function() {
     $.get($(this).attr("action"), $(this).serialize(), null, "script");
+    return false;
+  });
+
+  $("button.close").click(function() {
+    alert($(this).attr("id"));
     return false;
   });
 });

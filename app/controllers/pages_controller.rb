@@ -4,6 +4,8 @@ class PagesController < ApplicationController
 
   GOOGLE_BOOKS_API = "https://www.googleapis.com/books/v1/volumes?q=isbn:"
 
+  helper_method :clear_book_query
+
   def home
   end
 
@@ -36,6 +38,10 @@ class PagesController < ApplicationController
 
   def validate_isbn(isbn)
     !isbn.nil? && isbn =~ /^\d{10}\d{3}?$/
+  end
+
+  def clear_book_query
+    @book_query = nil
   end
 
   def book_query(isbn)

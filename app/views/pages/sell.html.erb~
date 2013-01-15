@@ -3,7 +3,7 @@
 <% if current_user %>
   <%= render 'shared/error_messages' %>
   <div id="dynamic_listing_form"><%= render 'listing_form' %></div>
-  <span id="your_textbooks"><%= render 'your_textbooks' %></span>
+  <div id="your_textbooks"><%= render 'your_textbooks' %></div>
 <% else %>
   <div class="alert alert-error">
     You must sign in with Facebook in order to access this page!
