@@ -2,35 +2,20 @@ class PagesController < ApplicationController
   require 'open-uri'
   require 'json'
 
-  helper_method :flash
-
   GOOGLE_BOOKS_API = "https://www.googleapis.com/books/v1/volumes?q=isbn:"
 
   def home
   end
 
-  def flash
-    @flash
-  end
-
   def buy
     isbn = params[:isbn]
-    @flash = {}
-    unless isbn.nil?
-      if validate_isbn(isbn)
-        data = book_query(isbn)
-        if data
-          @flash[:success] = book_query(isbn)
-        else
-          @flash[:error] = "Unable to generate book preview because ISBN #{isbn} was not found. Make sure you entered in a correct 10 or 13 digit ISBN."
-        end
-        #redirect_to buy_path
-      else
-        @flash[:error] = "#{isbn} is not a valid input. Make sure your ISBN is 10 or 13 digits long."
-        #redirect_to buy_path
-      end
-    end
-    puts @flash.to_s
+    
+    if validate_isbn(isbn)
+      @book_query = book_query(isbn)
+      @error = { failure: "Unable to generate book preview because ISBN #{isbn} was not found. Make sure you entered in a correct 10 or 13 digit ISBN." } unless @book_query
+    else
+      @error = { error: "#{isbn} is not a valid input. Make sure your ISBN is 10 or 13 digits long." }
+    end 
   end
 
   def sell
@@ -38,7 +23,7 @@ class PagesController < ApplicationController
   end
 
   def validate_isbn(isbn)
-    isbn =~ /^\d{10}\d{3}?$/
+    !isbn.nil? && isbn =~ /^\d{10}\d{3}?$/
   end
 
   def book_query(isbn)

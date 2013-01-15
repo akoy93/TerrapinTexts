@@ -3,6 +3,7 @@
     <div class="alert alert-<%= key %>"><%= data %></div>
   <% elsif key == :success %>
     <div class="container-fluid media well">
+      <p>testing</p>
       <h1 class="media-heading">Your search results:</h1>
       <br />
       <div class="row-fluid">
