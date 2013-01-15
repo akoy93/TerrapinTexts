@@ -18,6 +18,10 @@ class TextbookListingsController < ApplicationController
     end
   end
 
+  def self.get_textbook_listings(uid)
+    TextbookListing.get_textbook_listings(uid)
+  end
+
   def show
     @textbook_listing = TextbookListing.find(params[:id])
   end

@@ -19,7 +19,8 @@ class PagesController < ApplicationController
   end
 
   def sell
-    @textbook_listing ||= TextbookListing.new
+    @textbook_listing = TextbookListing.new
+    @textbook_listings = TextbookListing.get_textbook_listings
   end
 
   def get_book_fields_ajax

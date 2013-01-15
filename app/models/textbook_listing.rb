@@ -6,6 +6,10 @@ class TextbookListing < ActiveRecord::Base
   CONDITION_REGEX = /^\d$/
   attr_accessible :author, :condition, :description_of_condition, :isbn, :price, :publication_year, :publisher, :title, :uid
 
+  def self.get_textbook_listings(uid)
+    find(:all, conditions: ['uid == "' + uid + '"'])
+  end
+
   validates :author, presence: true, length: { maximum: 50 }
   validates :condition, presence: true, format: { with: CONDITION_REGEX }
   validates :isbn, presence: true, format: { with: ISBN_REGEX, message: "should be either 10 or 13 digits." }

@@ -14,8 +14,13 @@ class TextbookListingsController < ApplicationController
     if @textbook_listing.save
       redirect_to @textbook_listing
     else
-      redirect_to sell_path
+      redirect_to sell_path errors: @textbook_listing.errors.full_messages
     end
+  end
+
+  def self.get_textbook_listings(uid)
+    puts uid
+    puts TextbookListing.get_textbook_listings(uid)
   end
 
   def show
