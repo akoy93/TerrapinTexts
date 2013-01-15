@@ -3,17 +3,22 @@ class TextbookListingsController < ApplicationController
   end
 
   def destroy
-    TextbookListing.find(params[:id]).destroy
-    flash[:success] = "Textbook listing deleted."
+    to_delete = TextbookListing.find(params[:id])
+    if to_delete[:uid] == User.from_omniauth(env["omniauth.auth"]).id # check that user owns listing
+      to_delete.destroy
+      flash[:success] = "Textbook listing deleted!"
+    else
+      flash[:error] = "You do not have permission to delete that listing!"
+    end
     redirect_to sell_path
   end
 
   def update
+    
   end
 
   def create
     params[:textbook_listing][:isbn] = params[:isbn]
-    params[:textbook_listing][:thumbnail] = 
     @textbook_listing = TextbookListing.new(params[:textbook_listing])
     if @textbook_listing.save
       redirect_to sell_path

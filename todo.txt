@@ -1,0 +1,12 @@
+features to implement:
+ - sell page
+  -> update listing feature?
+  -> ajax delete listing?
+
+ - buy page
+  -> browse books, show most recently posted listings
+  -> search by isbn, author, title, class
+  -> display mutual friends
+  -> listing results are ajax loaded, paginated, and sortable
+  -> load umd class data into database
+  -> messaging feature?
