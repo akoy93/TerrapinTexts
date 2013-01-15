@@ -15,24 +15,34 @@
 //= require bootstrap
 //= require_tree .
 
+function handle_button() {
+  $("button.close").click(function() {
+    alert($(this).attr("id"));
+    return false;
+  });
+}
+
+function handle_new_textbook_listing() {
+  $("#new_textbook_listing").submit(function() {
+    $.get($(this).attr("action"), $(this).serialize(), null, "script");
+    return false;
+  });
+}
+
+function handle_textbook_listing_isbn() {
+  $("#textbook_listing_isbn").focusout(function() {
+    $.get($(this).attr("action"), $(this).serialize(), null, "script");
+    return false;
+  });
+}
+
 $(function() {
   $("#buy_search").submit(function() {
     $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), null, "script");
     return false;
   });
 
-  $("#textbook_listing_isbn").focusout(function() {
-    $.get($(this).attr("action"), $(this).serialize(), null, "script");
-    return false;
-  });
-
-  $("#new_textbook_listing").submit(function() {
-    $.get($(this).attr("action"), $(this).serialize(), null, "script");
-    return false;
-  });
-
-  $("button.close").click(function() {
-    alert($(this).attr("id"));
-    return false;
-  });
+  handle_textbook_listing_isbn();
+  handle_new_textbook_listing();
+  handle_button();
 });

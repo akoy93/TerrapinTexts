@@ -4,6 +4,8 @@ class PagesController < ApplicationController
 
   GOOGLE_BOOKS_API = "https://www.googleapis.com/books/v1/volumes?q=isbn:"
 
+  helper_method :clear_book_query
+
   def home
   end
 

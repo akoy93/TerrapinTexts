@@ -15,6 +15,20 @@
 //= require bootstrap
 //= require_tree .
 
+function handle_button() {
+  $("button.close").click(function() {
+    alert($(this).attr("id"));
+    return false;
+  });
+}
+
+function handle_new_textbook_listing() {
+  $("#new_textbook_listing").submit(function() {
+    $.get($(this).attr("action"), $(this).serialize(), null, "script");
+    return false;
+  });
+}
+
 $(function() {
   $("#buy_search").submit(function() {
     $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), null, "script");
@@ -26,14 +40,6 @@ $(function() {
     return false;
   });
 
-  $("#new_textbook_listing").submit(function() {
-    $.get($(this).attr("action"), $(this).serialize(), null, "script");
-    $(this)[0].reset();
-    return false;
-  });
-
-  $("button.close").click(function() {
-    alert($(this).attr("id"));
-    return false;
-  });
+  handle_new_textbook_listing();
+  handle_button();
 });

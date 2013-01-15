@@ -2,7 +2,7 @@
   <div id="error_explanation">
     <div class="alert alert-error">
       <a class="close" data-dismiss="alert" href="#">&times;</a>
-      The form contains <%= pluralize(params[:errors].size, "error") %>.
+      <strong>The form contains <%= pluralize(params[:errors].size, "error") %>:</strong>
       <br />
       <ul>
         <% params[:errors].each do |msg| %>

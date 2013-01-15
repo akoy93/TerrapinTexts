@@ -55,7 +55,7 @@ class PagesController < ApplicationController
       hashed_data[:subtitle] = json_data["items"][0]["volumeInfo"]["subtitle"]
       hashed_data[:publisher] = json_data["items"][0]["volumeInfo"]["publisher"]
       hashed_data[:description] = json_data["items"][0]["volumeInfo"]["description"]
-      hashed_data[:publication_year] = json_data["items"][0]["volumeInfo"]["publishedDate"]
+      hashed_data[:publication_year] = json_data["items"][0]["volumeInfo"]["publishedDate"][0..3]
       hashed_data[:thumbnail] = json_data["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"]
       hashed_data
     rescue

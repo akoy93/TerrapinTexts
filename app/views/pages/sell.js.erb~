@@ -1,4 +1,12 @@
 // render ajax search results
 $("#your_textbooks").html("<%= escape_javascript(render("your_textbooks")) %>");
 $("#error_messages").html("<%= escape_javascript(render("shared/error_messages")) %>");
-$("#new_textbook_listing")[0].reset();
+
+alert($("#error_explanation > .alert-error").attr("class"))
+
+if ($("#error_explanation > .alert-error").attr("class").length > 0) { // check for success
+  alert("error");
+}
+
+handle_button();
+handle_textbook_listing_isbn();

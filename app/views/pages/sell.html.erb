@@ -1,7 +1,7 @@
 <% provide(:title, "Sell") %>
 
 <% if current_user %>
-  <div id="error_messages"><%= render 'shared/error_messages' %></div>
+  <div id="error_messages"></div>
   <div id="dynamic_listing_form"><%= render 'listing_form' %></div>
   <div id="your_textbooks"><%= render 'your_textbooks' %></div>
 <% else %>
