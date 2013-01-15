@@ -11,11 +11,10 @@ class TextbookListingsController < ApplicationController
   def create
     params[:textbook_listing][:isbn] = params[:isbn]
     @textbook_listing = TextbookListing.new(params[:textbook_listing])
-    puts @textbook_listing.inspect
     if @textbook_listing.save
       redirect_to @textbook_listing
     else
-      render 'pages/sell'
+      redirect_to sell_path errors: @textbook_listing.errors.full_messages
     end
   end
 

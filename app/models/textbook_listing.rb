@@ -3,11 +3,11 @@ class TextbookListing < ActiveRecord::Base
   UID_REGEX = /^\d{1,}$/
   YEAR_REGEX = /^\d{4}$/
   ISBN_REGEX = /^\d{10}\d{3}?$/
-
+  CONDITION_REGEX = /^\d$/
   attr_accessible :author, :condition, :description_of_condition, :isbn, :price, :publication_year, :publisher, :title, :uid
 
   validates :author, presence: true, length: { maximum: 50 }
-  validates :condition, presence: true, length: { maximum: 10 }
+  validates :condition, presence: true, format: { with: CONDITION_REGEX }
   validates :isbn, presence: true, format: { with: ISBN_REGEX, message: "should be either 10 or 13 digits." }
   validates :price, presence: true, format: { with: PRICE_REGEX, message: "should be in the format ###.##" }
   validates :publication_year, presence: true, format: { with: YEAR_REGEX, message: "should be in the format ####." }

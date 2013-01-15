@@ -78,7 +78,7 @@
       </div>
       <div class="span3">
         <%= f.label :condition %>
-        <%= f.select(:condition, options_for_select([["", 0], ["Like New", 1], ["Very Good", 2], ["Good", 3], ["Fair", 4], ["Poor", 5]])) %>
+        <%= f.select(:condition, options_for_select([["", nil], ["Like New", 5], ["Very Good", 4], ["Good", 3], ["Fair", 2], ["Poor", 1]])) %>
       </div>
       <div class="span5">
         <%= f.label :description_of_condition, "(Optional) Brief Description: " %>
@@ -90,6 +90,7 @@
         <%= f.submit "Create Listing", class: "center btn btn-large btn-primary" %>
       </div>
     </div>
+    <%= f.hidden_field :uid, value: current_user.uid %>
   <% end %>
 </div>
 </div>

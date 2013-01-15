@@ -64,11 +64,6 @@ footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
-  color: #999;
-}
-
-footer a {
-  color: #555;
 }
 
 footer small {

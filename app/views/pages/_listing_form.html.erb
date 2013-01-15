@@ -1,7 +1,6 @@
 <div class="container">
 <div class="well">
   <%= form_for(@textbook_listing) do |f| %>
-    <%= render 'shared/error_messages' %>
     <h3>Book Information</h3>
     <br />
     <div class="row-fluid">
@@ -90,6 +89,7 @@
         <%= f.submit "Create Listing", class: "center btn btn-large btn-primary" %>
       </div>
     </div>
+    <%= f.hidden_field :uid, value: current_user.uid %>
   <% end %>
 </div>
 </div>

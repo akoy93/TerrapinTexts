@@ -1,6 +1,18 @@
 <% provide(:title, "Sell") %>
 
 <% if current_user %>
+<% unless params[:errors].nil? %>
+  <div id="error_explanation">
+    <div class="alert alert-error">
+      The form contains <%= pluralize(params[:errors].size, "error") %>.
+    </div>
+  <ul>
+  <% params[:errors].each do |msg| %>
+    <li>* <%= msg %></li>
+  <% end %>
+  </ul>
+  </div>
+<% end %>
   <div id="dynamic_listing_form"><%= render 'listing_form' %></div>
 <% else %>
 <div class="alert alert-error">
