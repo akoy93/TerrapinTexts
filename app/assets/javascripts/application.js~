@@ -15,15 +15,22 @@
 //= require bootstrap
 //= require_tree .
 
-function handle_button() {
-  $("button.close").click(function() {
-    alert($(this).attr("id"));
+function handle_new_textbook_listing() {
+  $("#new_textbook_listing").submit(function() {
+    $.get($(this).attr("action"), $(this).serialize(), null, "script");
     return false;
   });
 }
 
-function handle_new_textbook_listing() {
-  $("#new_textbook_listing").submit(function() {
+function handle_textbook_listing_isbn() {
+  $("#textbook_listing_isbn").focusout(function() {
+    $.get($(this).attr("action"), $(this).serialize(), null, "script");
+    return false;
+  });
+}
+
+function handle_delete_button() {
+  $("a.btn.close").click(function() {
     $.get($(this).attr("action"), $(this).serialize(), null, "script");
     return false;
   });
@@ -35,11 +42,7 @@ $(function() {
     return false;
   });
 
-  $("#textbook_listing_isbn").focusout(function() {
-    $.get($(this).attr("action"), $(this).serialize(), null, "script");
-    return false;
-  });
-
+  handle_textbook_listing_isbn();
   handle_new_textbook_listing();
-  handle_button();
+  handle_delete_button();
 });

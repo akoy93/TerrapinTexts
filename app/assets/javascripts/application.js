@@ -15,13 +15,6 @@
 //= require bootstrap
 //= require_tree .
 
-function handle_button() {
-  $("button.close").click(function() {
-    alert($(this).attr("id"));
-    return false;
-  });
-}
-
 function handle_new_textbook_listing() {
   $("#new_textbook_listing").submit(function() {
     $.get($(this).attr("action"), $(this).serialize(), null, "script");
@@ -44,5 +37,4 @@ $(function() {
 
   handle_textbook_listing_isbn();
   handle_new_textbook_listing();
-  handle_button();
 });

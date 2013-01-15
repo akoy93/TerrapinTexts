@@ -3,12 +3,12 @@
   <h3>Your Textbook Listings:</h3>
   <br />
 <% end %>
-<% listings.each_slice(2).each do |slice| %>
+<% listings.reverse.each_slice(2).each do |slice| %>
   <div class="row-fluid">
     <% slice.each do |t| %>
       <div class="span6">
         <div class="media well">
-          <button class="close" id=<%= t[:id] %>>&times;</button>
+          <%= button 'X', t, method: :delete, confirm: "Are you sure you want to delete this listing?", class: "btn close" %>
           <div class="row-fluid">
             <div class="span9 media-body pull-left">
               <strong>Title:</strong> <%= t[:title].to_s %><br />

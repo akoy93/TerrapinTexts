@@ -1,11 +1,12 @@
 // render ajax search results
-$("#your_textbooks").html("<%= escape_javascript(render("your_textbooks")) %>");
 $("#error_messages").html("<%= escape_javascript(render("shared/error_messages")) %>");
 
 if ($("#error_explanation > .alert-success").attr("class").length > 0) { // check for success message
   $("#dynamic_listing_form").html("<%= escape_javascript(render("listing_form")) %>");
   handle_new_textbook_listing();
+  handle_textbook_listing_isbn();
+  $("#your_textbooks").html("<%= escape_javascript(render("your_textbooks")) %>");
+  handle_delete_button();
 }
 
-handle_textbook_listing_isbn();
-handle_button();
+

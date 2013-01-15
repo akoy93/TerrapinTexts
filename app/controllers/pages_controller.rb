@@ -37,7 +37,7 @@ class PagesController < ApplicationController
   end
 
   def validate_isbn(isbn)
-    !isbn.nil? && isbn =~ /^\d{10}\d{3}?$/
+    isbn && isbn =~ /^\d{10}\d{3}?$/
   end
 
   def clear_book_query

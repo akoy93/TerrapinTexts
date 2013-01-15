@@ -1,5 +1,5 @@
 module PagesHelper
   def validate_isbn(isbn)
-    isbn.length == 13 && isbn =~ /\d{13}/
+    isbn && isbn =~ /^\d{10}\d{3}?$/
   end
 end

@@ -3,6 +3,9 @@ class TextbookListingsController < ApplicationController
   end
 
   def destroy
+    TextbookListing.find(params[:id]).destroy
+    flash[:success] = "Textbook listing deleted."
+    redirect_to sell_path
   end
 
   def update
@@ -19,8 +22,8 @@ class TextbookListingsController < ApplicationController
     end
   end
 
-  def self.get_textbook_listings(uid)
-    TextbookListing.get_textbook_listings(uid)
+  def self.get_textbook_listings(field, value)
+    TextbookListing.get_textbook_listings(field, value)
   end
 
   def show
