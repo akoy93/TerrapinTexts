@@ -1,6 +1,6 @@
 <div class="container">
 <div class="well">
-  <%= form_for(@textbook_listing) do |f| %>
+  <%= form_for(@textbook_listing, id: "list_textbook") do |f| %>
     <h3>Book Information</h3>
     <br />
     <div class="row-fluid">
@@ -90,6 +90,11 @@
       </div>
     </div>
     <%= f.hidden_field :uid, value: current_user.uid %>
+    <% if @book_query %>
+      <%= f.hidden_field :thumbnail, value: @book_query[:thumbnail].to_s %>
+    <% else %>
+      <%= f.hidden_field :thumbnail, value: 'not-available-thumbnail.jpg' %>
+    <% end %>
   <% end %>
 </div>
 </div>

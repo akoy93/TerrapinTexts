@@ -10,6 +10,7 @@ class TextbookListingsController < ApplicationController
 
   def create
     params[:textbook_listing][:isbn] = params[:isbn]
+    params[:textbook_listing][:thumbnail] = 
     @textbook_listing = TextbookListing.new(params[:textbook_listing])
     if @textbook_listing.save
       redirect_to @textbook_listing

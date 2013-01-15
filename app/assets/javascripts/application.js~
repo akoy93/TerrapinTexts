@@ -20,7 +20,13 @@ $(function() {
     return false;
   });
 
-  $("#sell_isbn").focusout(function() {
+  $("#textbook_listing_isbn").focusout(function() {
+    $.get($(this).attr("action"), $(this).serialize(), null, "script");
+    return false;
+  });
+
+  $("#new_textbook_listing").submit(function() {
+    alert("detected");
     $.get($(this).attr("action"), $(this).serialize(), null, "script");
     return false;
   });

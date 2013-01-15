@@ -1,0 +1,3 @@
+// render ajax search results
+alert("detected")
+$("#your_textbooks").html("<%= escape_javascript(render("your_textbooks")) %>");

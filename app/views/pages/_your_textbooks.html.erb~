@@ -1,8 +1,6 @@
 <% listings = TextbookListingsController.get_textbook_listings(current_user.uid) %>
-<% unless listings.empty? %>
-  <h3>Your Textbook Listings:</h3>
-  <br />
-<% end %>
+<h3>Your Textbook Listings:</h3>
+<br />
 <% listings.each_slice(2).each do |slice| %>
   <div class="row-fluid">
     <% slice.each do |t| %>
@@ -16,7 +14,7 @@
               <strong>Publisher:</strong> <%= t[:publisher].to_s %><br />
               <strong>Publication Year:</strong> <%= t[:publication_year].to_s %><br />
               <strong>Condition:</strong> <%= condition_to_s(t[:condition]) %><br />
-              <strong>Price:</strong> <%= t[:price].to_s %><br />
+              <strong>Price:</strong> <%= number_to_currency(t[:price]) %><br />
               <strong>ISBN:</strong> <%= t[:isbn].to_s %><br />
               <strong>Listing Description:</strong> <%= t[:description_of_condition].to_s %>
             </div>
@@ -29,4 +27,3 @@
     <% end %>
   </div>
 <% end %>
-

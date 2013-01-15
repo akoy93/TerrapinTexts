@@ -24,4 +24,10 @@ $(function() {
     $.get($(this).attr("action"), $(this).serialize(), null, "script");
     return false;
   });
+
+  $("#dynamic_listing_form > form").submit(function() {
+    alert("detected");
+    $.get($(this).attr("action"), $(this).serialize(), null, "script");
+    return false;
+  });
 });
