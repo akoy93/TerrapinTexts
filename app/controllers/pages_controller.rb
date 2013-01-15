@@ -12,6 +12,7 @@ class PagesController < ApplicationController
     
     if validate_isbn(isbn)
       @book_query = book_query(isbn)
+      @listing_results = TextbookListing.get_listings(isbn)
       @error = { failure: "Unable to generate book preview because ISBN #{isbn} was not found. Make sure you entered in a correct 10 or 13 digit ISBN." } unless @book_query
     else
       @error = { error: "#{isbn} is not a valid input. Make sure your ISBN is 10 or 13 digits long." }
@@ -28,7 +29,7 @@ class PagesController < ApplicationController
     if validate_isbn(isbn)
       @book_query = book_query(isbn)
       @error = { failure: "Unable to generate book preview because ISBN #{isbn} was not found. If your ISBN is correct, enter the book information manually." } unless @book_query
-    else
+    elsif !isbn.empty?
       @error = { error: "#{isbn} is not a valid input. Make sure your ISBN is 10 or 13 digits long." }
     end
   end

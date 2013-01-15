@@ -13,7 +13,7 @@ class TextbookListingsController < ApplicationController
     params[:textbook_listing][:thumbnail] = 
     @textbook_listing = TextbookListing.new(params[:textbook_listing])
     if @textbook_listing.save
-      redirect_to @textbook_listing
+      redirect_to sell_path
     else
       redirect_to sell_path errors: @textbook_listing.errors.full_messages
     end

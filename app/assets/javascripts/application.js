@@ -25,7 +25,7 @@ $(function() {
     return false;
   });
 
-  $("#dynamic_listing_form > form").submit(function() {
+  $("form#new_textbook_listing").submit(function() {
     alert("detected");
     $.get($(this).attr("action"), $(this).serialize(), null, "script");
     return false;

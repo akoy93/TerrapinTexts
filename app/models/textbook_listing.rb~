@@ -4,7 +4,7 @@ class TextbookListing < ActiveRecord::Base
   YEAR_REGEX = /^\d{4}$/
   ISBN_REGEX = /^\d{10}\d{3}?$/
   CONDITION_REGEX = /^\d$/
-  attr_accessible :author, :condition, :description_of_condition, :isbn, :price, :publication_year, :publisher, :title, :uid
+  attr_accessible :author, :condition, :description_of_condition, :isbn, :price, :publication_year, :publisher, :title, :uid, :thumbnail
 
   def self.get_textbook_listings(uid)
     find(:all, conditions: ['uid == "' + uid + '"'])

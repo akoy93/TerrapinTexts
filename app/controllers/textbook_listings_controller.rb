@@ -19,8 +19,8 @@ class TextbookListingsController < ApplicationController
     end
   end
 
-  def self.get_textbook_listings(uid)
-    TextbookListing.get_textbook_listings(uid)
+  def self.get_textbook_listings(field, value)
+    TextbookListing.get_textbook_listings(field, value)
   end
 
   def show

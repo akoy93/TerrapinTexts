@@ -9,7 +9,7 @@
       <%= submit_tag("Search", class: "btn") %>
     <% end %>
   </div>
-  <div id="search_results"><%= render 'search_results' %></div>
+  <div id="search_results"></div>
 <% else %>
   <div class="alert alert-error">
     You must sign in with Facebook in order to access this page!

@@ -6,8 +6,8 @@ class TextbookListing < ActiveRecord::Base
   CONDITION_REGEX = /^\d$/
   attr_accessible :author, :condition, :description_of_condition, :isbn, :price, :publication_year, :publisher, :title, :uid, :thumbnail
 
-  def self.get_textbook_listings(uid)
-    find(:all, conditions: ['uid == "' + uid + '"'])
+  def self.get_textbook_listings(field, value)
+    find(:all, conditions: [field + ' == "' + value + '"'])
   end
 
   validates :author, presence: true, length: { maximum: 50 }

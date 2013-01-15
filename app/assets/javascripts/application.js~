@@ -25,7 +25,7 @@ $(function() {
     return false;
   });
 
-  $("#new_textbook_listing").submit(function() {
+  $("html body div.container div#dynamic_listing_form div.container div.well form#new_textbook_listing.new_textbook_listing").submit(function() {
     alert("detected");
     $.get($(this).attr("action"), $(this).serialize(), null, "script");
     return false;
