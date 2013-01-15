@@ -1,7 +1,7 @@
 <% provide(:title, "Sell") %>
 
 <% if current_user %>
-  <%= render 'listing_form' %>
+  <div id="dynamic_listing_form"><%= render 'listing_form' %></div>
 <% else %>
 <div class="alert alert-error">
   You must sign in with Facebook in order to access this page!

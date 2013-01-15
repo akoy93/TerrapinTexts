@@ -3,6 +3,8 @@ Texts4terps::Application.routes.draw do
 
   root to: 'pages#home'
 
+  match '/textbook_listings/sell', to: 'pages#sell'
+  match '/get_book_fields_ajax', to: 'pages#get_book_fields_ajax'
   match '/buy', to: 'pages#buy'
   match '/sell', to: 'pages#sell'
   match '/search', to: 'pages#buy'

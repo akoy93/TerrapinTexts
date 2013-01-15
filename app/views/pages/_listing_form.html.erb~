@@ -1,5 +1,7 @@
 <div class="container">
+<div class="well">
   <%= form_for(@textbook_listing) do |f| %>
+    <%= render 'shared/error_messages' %>
     <h3>Book Information</h3>
     <br />
     <div class="row-fluid">
@@ -20,7 +22,6 @@
           <br />
           <% error_type, message = @error.first %>
           <div class="alert alert-<%= error_type %>">
-            <a href="#" class="close" data-dismiss="alert">&times;</a>
             <%= message %>
           </div>
           <br />
@@ -91,4 +92,4 @@
     </div>
   <% end %>
 </div>
-
+</div>
