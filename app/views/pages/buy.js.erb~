@@ -1,1 +1,3 @@
+// render ajax search results
+alert("called");
 $("#search_results").html("<%= escape_javascript(render("search_results")) %>");

@@ -1,9 +1,9 @@
 <% if @error %>
-  <% key, data = @error.first %>
-  <div class="alert alert-<%= key %>"><%= data %></div>
+  <% error_type, message = @error.first %>
+  <div class="alert alert-<%= error_type %>"><%= message %></div>
 <% elsif @book_query %>
   <div class="container-fluid media well">
-    <h3 class="media-heading">Your search results:</h1>
+    <h2 class="media-heading">Your search results:</h2>
     <br />
     <div class="row-fluid">
       <div class="span2">
