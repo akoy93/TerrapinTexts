@@ -1,7 +1,7 @@
 <% provide(:title, "Sell") %>
 
 <% if current_user %>
-  <%= render 'layouts/listing_form' %>
+  <%= render 'listing_form' %>
 <% else %>
 <div class="alert alert-error">
   You must sign in with Facebook in order to access this page!

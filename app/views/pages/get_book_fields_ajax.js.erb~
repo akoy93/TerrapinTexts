@@ -1,0 +1,3 @@
+// render dynamics listing form
+$("#dynamic_listing_form").html("<%= escape_javascript(render("listing_form")) %>");
+$("#textbook_listing_isbn").unbind();

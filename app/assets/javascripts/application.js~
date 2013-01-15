@@ -17,7 +17,11 @@
 $(function() {
   $("#buy_search").submit(function() {
     $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), null, "script");
-    $("#search_results").html("<%= escape_javascript(render("search_results")) %>");
+    return false;
+  });
+
+  $("#sell_isbn").focusout(function() {
+    $.get($(this).attr("action"), $(this).serialize(), null, "script");
     return false;
   });
 });

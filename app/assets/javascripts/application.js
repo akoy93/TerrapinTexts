@@ -19,4 +19,9 @@ $(function() {
     $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), null, "script");
     return false;
   });
+
+  $("#textbook_listing_isbn").focusout(function() {
+    $.get($(this).attr("action"), $(this).serialize(), null, "script");
+    return false;
+  });
 });

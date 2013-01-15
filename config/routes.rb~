@@ -1,8 +1,5 @@
 Texts4terps::Application.routes.draw do
   resources :textbook_listings
-  get "textbook_listings/add"
-
-  get "textbook_listings/remove"
 
   root to: 'pages#home'
 
