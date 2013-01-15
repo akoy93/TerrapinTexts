@@ -1,5 +1,4 @@
 class TextbookListing < ActiveRecord::Base
-  PRICE_REGEX = /^\d{1,4}\.\d{1,2}$/
   UID_REGEX = /^\d{1,}$/
   YEAR_REGEX = /^\d{4}$/
   ISBN_REGEX = /^\d{10}\d{3}?$/
@@ -12,8 +11,9 @@ class TextbookListing < ActiveRecord::Base
   validates :author, presence: true, length: { maximum: 50 }
   validates :condition, presence: true
   validates :isbn, presence: true, format: { with: ISBN_REGEX, message: "should be either 10 or 13 digits." }
-  validates :price, presence: true, format: { with: PRICE_REGEX, message: "should be in the format ###.##" }
-  validates :publication_year, presence: true, format: { with: YEAR_REGEX, message: "should be in the format ####." }
+  validates :price, :format => { :with => /^\d+??(?:\.\d{0,2})?$/ }, 
+:numericality =>{:greater_than => 0}
+  validates :publication_year, presence: true, format: { with: YEAR_REGEX }
   validates :publisher, presence: true, length: { maximum: 50 }
   validates :title, presence: true, length: { maximum: 100 }
   validates :uid, presence: true, format: { with: UID_REGEX }
