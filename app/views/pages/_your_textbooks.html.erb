@@ -3,19 +3,30 @@
   <h3>Your Textbook Listings:</h3>
   <br />
 <% end %>
-<% listings.each do |t| %>
+<% listings.each_slice(2).each do |slice| %>
   <div class="row-fluid">
-      <div class="well">
-        <button class="close">&times;</button>
-        <strong>Title:</strong> <%= t[:title].to_s %><br />
-        <strong>Author(s):</strong> <%= t[:author].to_s %><br />
-        <strong>Publisher:</strong> <%= t[:publisher].to_s %><br />
-        <strong>Publication Year:</strong> <%= t[:publication_year].to_s %><br />
-        <strong>Condition:</strong> <%= condition_to_s(t[:condition]) %>
-        <strong>Price:</strong> <%= t[:price].to_s %>
-        <strong>ISBN:</strong> <%= t[:isbn].to_s %>
-        <strong>Listing Description:</strong> <%= t[:description_of_condition].to_s %>
+    <% slice.each do |t| %>
+      <div class="span6">
+        <div class="media well">
+          <button class="close">&times;</button>
+          <div class="row-fluid">
+            <div class="span9 media-body pull-left">
+              <strong>Title:</strong> <%= t[:title].to_s %><br />
+              <strong>Author(s):</strong> <%= t[:author].to_s %><br />
+              <strong>Publisher:</strong> <%= t[:publisher].to_s %><br />
+              <strong>Publication Year:</strong> <%= t[:publication_year].to_s %><br />
+              <strong>Condition:</strong> <%= condition_to_s(t[:condition]) %><br />
+              <strong>Price:</strong> <%= number_to_currency(t[:price]) %><br />
+              <strong>ISBN:</strong> <%= t[:isbn].to_s %><br />
+              <strong>Listing Description:</strong> <%= t[:description_of_condition].to_s %>
+            </div>
+            <div class="span3">
+              <%= image_tag t[:thumbnail].to_s, alt: "book thumbnail", class: "pull-right media-object", style: "padding-top:10px" %>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    <% end %>
+  </div>
 <% end %>
 

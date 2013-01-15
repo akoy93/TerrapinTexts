@@ -19,8 +19,7 @@ class TextbookListingsController < ApplicationController
   end
 
   def self.get_textbook_listings(uid)
-    puts uid
-    puts TextbookListing.get_textbook_listings(uid)
+    TextbookListing.get_textbook_listings(uid)
   end
 
   def show

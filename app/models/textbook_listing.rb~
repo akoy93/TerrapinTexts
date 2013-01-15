@@ -7,7 +7,7 @@ class TextbookListing < ActiveRecord::Base
   attr_accessible :author, :condition, :description_of_condition, :isbn, :price, :publication_year, :publisher, :title, :uid
 
   def self.get_textbook_listings(uid)
-    find(:all, conditions: ['uid == "#{uid}"'])
+    find(:all, conditions: ['uid == "' + uid + '"'])
   end
 
   validates :author, presence: true, length: { maximum: 50 }
