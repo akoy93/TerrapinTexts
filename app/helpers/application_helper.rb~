@@ -22,4 +22,10 @@ def sortable(column, title = nil)
   direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
   link_to title, params.merge(:sort => column, :direction => direction, :page => nil), {:class => css_class}
 end
+
+  def condition_to_s(i)
+    conditions = ["Poor", "Fair", "Good", "Very Good", "Like New"]
+    conditions[i.to_i - 1]
+  end
+
 end
