@@ -1,9 +1,13 @@
 <% if @error %>
   <% error_type, message = @error.first %>
-  <div class="alert alert-<%= error_type %>"><%= message %></div>
+  <div class="alert alert-<%= error_type %>">
+    <a class="close" data-dismiss="alert" href="#">&times;</a>
+    <%= message %>
+  </div>
 <% elsif @book_query %>
-  <div class="container-fluid media well">
-    <h2 class="media-heading">Your search results:</h2>
+  <div class="container-fluid media well alert alert-success" id="book_preview">
+    <a class="close" data-dismiss="alert" href="#">&times;</a>
+    <h2 class="media-heading">Book Preview</h2>
     <br />
     <div class="row-fluid">
       <div class="span2">
@@ -18,6 +22,5 @@
       </div>
     </div>
   </div>
-  <br />
 <% end %>
 

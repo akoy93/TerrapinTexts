@@ -10,8 +10,8 @@
 <body>
   <header class="navbar navbar-fixed-top">
     <div class="navbar-inner">
-      <div class="container">
-        <a class="brand" href=<%= root_path %>>Texts4Terps</a>
+      <div class="container-fluid">
+        <a class="brand" href=<%= root_path %>><strong>Texts4Terps</strong></a>
         <ul class="nav pull-right">
           <li<%=' class=active' if yield(:title) == "Home" %>><%= link_to "Home", root_path %></li>
           <li<%=' class=active' if yield(:title) == "Buy" %>><%= link_to "Buy", buy_path %></li>
@@ -25,9 +25,9 @@
       </div>
     </div>
   </header>
-  <div class="container">
+  <div class="container-fluid">
     <h1 class="pull-left"><%= yield(:title) + " Textbooks" if yield(:title) != "Home" %></h1>
-    <div class="container">
+    <div class="container-fluid">
     <div id="user_nav" class="pull-right">
       <% if current_user %>
         Logged in as <strong><%= current_user.name %></strong>

@@ -12,7 +12,14 @@ module ApplicationHelper
     if result && result[1] == page_title
       "<li class=\"active\">#{menu_option}</li>"
     else
-      menu_option
+      "<li>#{menu_option}</li>"
     end
   end
+
+def sortable(column, title = nil)
+  title ||= column.titleize
+  css_class = column == sort_column ? "current #{sort_direction}" : nil
+  direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
+  link_to title, params.merge(:sort => column, :direction => direction, :page => nil), {:class => css_class}
+end
 end

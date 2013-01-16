@@ -11,13 +11,12 @@ class PagesController < ApplicationController
 
   def buy
     isbn = params[:isbn]
-    
+
     if validate_isbn(isbn)
       @book_query = book_query(isbn)
-      @listing_results = TextbookListing.get_listings(isbn)
-      @error = { failure: "Unable to generate book preview because ISBN #{isbn} was not found. Make sure you entered in a correct 10 or 13 digit ISBN." } unless @book_query
+      @error = { failure: "Unable to generate book preview because ISBN #{isbn} was not found. Make sure you entered in a correct 13 digit ISBN." } unless @book_query
     else
-      @error = { error: "#{isbn} is not a valid input. Make sure your ISBN is 10 or 13 digits long." }
+      @error = { error: "#{isbn} is not a valid input. Make sure your ISBN 13 digits long." }
     end 
   end
 
@@ -32,12 +31,12 @@ class PagesController < ApplicationController
       @book_query = book_query(isbn)
       @error = { failure: "Unable to generate book preview because ISBN #{isbn} was not found. If your ISBN is correct, enter the book information manually." } unless @book_query
     elsif !isbn.empty?
-      @error = { error: "#{isbn} is not a valid input. Make sure your ISBN is 10 or 13 digits long." }
+      @error = { error: "#{isbn} is not a valid input. Make sure your ISBN is 13 digits long." }
     end
   end
 
   def validate_isbn(isbn)
-    isbn && isbn =~ /^\d{10}\d{3}?$/
+    isbn && isbn =~ /^\d{13}$/
   end
 
   def clear_book_query

@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/railsdog/searchlogic.git
+  revision: dfe4a45f224aa84d5dcc1c1e28c598b08b7aee7a
+  specs:
+    rd_searchlogic (3.0.1)
+      activerecord (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -173,6 +180,7 @@ DEPENDENCIES
   omniauth-facebook
   pg (= 0.12.2)
   rails (= 3.2.3)
+  rd_searchlogic!
   rspec-rails (= 2.9.0)
   sass-rails (= 3.2.4)
   sqlite3
