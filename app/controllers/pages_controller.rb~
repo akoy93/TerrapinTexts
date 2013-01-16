@@ -10,9 +10,18 @@ class PagesController < ApplicationController
   end
 
   def buy
-    generate_browse_data
-    isbn = params[:isbn]
+    if params.[:q] && params[:q][:isbn_eq]
+      isbn = params[:q][:isbn_eq]
+      generate_book_preview(isbn)
+    end
+    generate_search_results
+  end
 
+  def sell
+    @textbook_listing = TextbookListing.new
+  end
+
+  def generate_book_preview(isbn)
     if validate_isbn(isbn)
       @book_query = book_query(isbn)
       @error = { failure: "Unable to generate book preview because ISBN #{isbn} was not found. Make sure you entered in a correct 13 digit ISBN." } unless @book_query
@@ -21,9 +30,11 @@ class PagesController < ApplicationController
     end 
   end
 
-  def sell
-    @textbook_listing = TextbookListing.new
+  def generate_search_results
+    @search = TextbookListing.search(params[:q])
+    @listings = @search.result
   end
+
 
   def get_book_fields_ajax
     @textbook_listing = TextbookListing.new

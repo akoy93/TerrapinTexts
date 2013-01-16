@@ -30,7 +30,7 @@ function handle_textbook_listing_isbn() {
 }
 
 $(function() {
-  $("#buy_search").submit(function() {
+  $("#buy_search").keyup(function() {
     $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), null, "script");
     return false;
   });

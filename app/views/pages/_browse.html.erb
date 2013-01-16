@@ -4,17 +4,17 @@
   <tr>
     <th>Thumbnail</th>
     <th>ISBN</th>
-    <th>Title</th>
-    <th>Author(s)</th>
-    <th>Publisher</th>
-    <th>Year</th>
-    <th>Condition</th>
-    <th>Price</th>
+    <th><%= sort_link @search, :title, "Title" %></th>
+    <th><%= sort_link @search, :author, "Author(s)" %></th>
+    <th><%= sort_link @search, :publisher, "Publisher" %></th>
+    <th><%= sort_link @search, :publication_year, "Year" %></th>
+    <th><%= sort_link @search, :condition, "Condition" %></th>
+    <th><%= sort_link @search, :price, "Price" %></th>
     <th>Description</th>
     <th>Contact</th>
   </tr>
 <tbody>
-  <% get_browse_data.each do |l| %>
+  <% (@listings || get_browse_data).each do |l| %>
     <tr>
       <td><%= image_tag l[:thumbnail], alt: "thumbnail", width: "75" %></td>
       <td><%= l[:isbn] %></td>
