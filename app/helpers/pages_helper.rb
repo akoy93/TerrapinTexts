@@ -6,4 +6,8 @@ module PagesHelper
   def get_browse_data
     TextbookListing.find(:all) || []
   end
+
+  def get_your_textbooks
+    TextbookListing.search(uid_eq: current_user.uid).result
+  end
 end

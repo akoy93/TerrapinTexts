@@ -1,4 +1,4 @@
-<% listings = TextbookListingsController.get_textbook_listings("uid", current_user.uid) %>
+<% listings = get_your_textbooks %>
 <% unless listings.empty? %>
   <h3>Your Textbook Listings:</h3>
   <br />

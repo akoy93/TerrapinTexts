@@ -30,7 +30,26 @@ function handle_textbook_listing_isbn() {
 }
 
 $(function() {
-  $("#buy_search").keyup(function() {
+//  $("#buy_search").keyup(function() {
+//    $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), null, "script");
+//    return false;
+//  });
+
+  $('#buy_search').bind('keyup', function(e) {
+    if (e.keyCode == 32){ // space
+      $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), null, "script");
+      return false;
+    }
+  });
+
+  $('#buy_search').bind('keyup', function(e) {
+    if (e.keyCode == 8){ // backspace
+      $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), null, "script");
+      return false;
+    }
+  });
+
+  $("#buy_search").submit(function() {
     $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), null, "script");
     return false;
   });

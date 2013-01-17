@@ -13,9 +13,9 @@ class TextbookListing < ActiveRecord::Base
   validates :condition, presence: true
   validates :isbn, format: { with: ISBN_REGEX, message: "should be 13 digits." }
   validates :price, format: { with: PRICE_REGEX }, numericality: {greater_than: 0}
-  validates :publication_year, presence: true, format: { with: YEAR_REGEX }
+  validates :publication_year, format: { with: YEAR_REGEX }
   validates :publisher, presence: true, length: { maximum: 50 }
   validates :title, presence: true, length: { maximum: 100 }
-  validates :uid, presence: true, format: { with: UID_REGEX }
+  validates :uid, format: { with: UID_REGEX }
   validates :description_of_condition, length: { maximum: 180 }
 end
