@@ -4,7 +4,7 @@ module PagesHelper
   end
 
   def get_browse_data
-    TextbookListing.find(:all) || []
+    TextbookListing.find(:all).page(params[:page]).per(5) || []
   end
 
   def get_your_textbooks

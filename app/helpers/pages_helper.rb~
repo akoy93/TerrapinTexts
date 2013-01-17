@@ -4,10 +4,10 @@ module PagesHelper
   end
 
   def get_browse_data
-    TextbookListing.find(:all) || []
+    TextbookListing.find(:all).reverse.page(params[:page]).per(5) || []
   end
 
   def get_your_textbooks
-    TextbookListing.search(:uid => current_user.uid).result
+    TextbookListing.search(uid_eq: current_user.uid).result
   end
 end

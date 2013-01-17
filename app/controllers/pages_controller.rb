@@ -30,7 +30,7 @@ class PagesController < ApplicationController
 
   def generate_search_results
     @search = TextbookListing.search(params[:q])
-    @listings = @search.result
+    @listings = @search.result.page(params[:page]).per(5)
   end
 
 
