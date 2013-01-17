@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130115081355) do
+ActiveRecord::Schema.define(:version => 20130117042430) do
+
+  create_table "search_suggestions", :force => true do |t|
+    t.string   "term"
+    t.integer  "popularity"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "textbook_listings", :force => true do |t|
     t.string   "isbn"
