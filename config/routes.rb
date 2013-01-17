@@ -1,4 +1,6 @@
 Texts4terps::Application.routes.draw do
+  resources :search_suggestions
+
   resources :textbook_listings
 
   root to: 'pages#home'
