@@ -1,2 +1,0 @@
-<input type="text" size="30" placeholder="Enter a Book Title" name="q[title_matches]" id="q_title_matches" class="input-xxlarge search-query live-search">
-<input type="submit" value="Search" name="commit" class="btn">

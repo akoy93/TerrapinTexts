@@ -1,19 +1,18 @@
 features to implement:
- *-> standard isbn numbers to 13 digits
+ *-> standardize isbn numbers to 13 digits
  - sell page
   -> update listing feature?
 
  - buy page
   *-> browse books, show most recently posted listings
-  -> search by isbn, author, title, class, combine all searchable fields into one string
+  *-> search by isbn, author, title, class, combine all searchable fields into one string
     ~ write script to insert class name into string
   -> display mutual friends
+    ~ on sign in, create a set of friend uids, and method to query set for contains
   -> listing results are ajax loaded, paginated, and sortable
-  -> load umd class data into database
   -> messaging feature?
 
 -> 10 listings max
 -> Search by name
--> combine all searchable fields into one string
--> add thinking sphinx for search
 -> limit number of search queries per session
+-> optimize live search
