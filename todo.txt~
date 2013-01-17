@@ -7,6 +7,7 @@ features to implement:
  - buy page
   *-> browse books, show most recently posted listings
   -> search by isbn, author, title, class, combine all searchable fields into one string
+    ~ write script to insert class name into string
   -> display mutual friends
   -> listing results are ajax loaded, paginated, and sortable
   -> load umd class data into database

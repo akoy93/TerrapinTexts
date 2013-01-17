@@ -27,11 +27,6 @@ class TextbookListingsController < ApplicationController
     end
   end
 
-  def self.get_textbook_listings(field, value)
-    TextbookListing.get_textbook_listings(field, value)
-  end
-
   def show
-    @textbook_listing = TextbookListing.find(params[:id])
   end
 end

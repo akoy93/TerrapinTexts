@@ -10,7 +10,7 @@ class PagesController < ApplicationController
   end
 
   def buy
-    if params.[:q] && params[:q][:isbn_eq]
+    if params[:q] && params[:q][:isbn_eq]
       isbn = params[:q][:isbn_eq]
       generate_book_preview(isbn)
     end
