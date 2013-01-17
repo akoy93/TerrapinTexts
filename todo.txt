@@ -2,7 +2,6 @@ features to implement:
  *-> standard isbn numbers to 13 digits
  - sell page
   -> update listing feature?
-  -> ajax delete listing?
 
  - buy page
   *-> browse books, show most recently posted listings
@@ -10,7 +9,6 @@ features to implement:
     ~ write script to insert class name into string
   -> display mutual friends
   -> listing results are ajax loaded, paginated, and sortable
-  -> load umd class data into database
   -> messaging feature?
 
 -> 10 listings max
