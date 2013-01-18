@@ -17,6 +17,10 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :email, :uid
 
+  def num_listings
+    TextbookListing.search(uid_eq: uid).result.count
+  end
+
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider

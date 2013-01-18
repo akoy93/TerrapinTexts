@@ -1,4 +1,10 @@
 class TextbookListingsController < ApplicationController
+  MAX_LISTINGS = 10  
+
+  def self.max_listings
+    MAX_LISTINGS
+  end
+
   def new
   end
 
@@ -18,7 +24,7 @@ class TextbookListingsController < ApplicationController
   end
 
   def create
-    if current_user.uid == params[:textbook_listing][:uid] # security check
+    if current_user.num_listings < MAX_LISTINGS && current_user.uid == params[:textbook_listing][:uid] # security check
       params[:textbook_listing][:isbn] = params[:isbn]
       @textbook_listing = TextbookListing.new(params[:textbook_listing])
       if @textbook_listing.save
@@ -26,6 +32,8 @@ class TextbookListingsController < ApplicationController
       else
         redirect_to sell_path errors: @textbook_listing.errors.full_messages
       end
+    else
+      redirect_to sell_path errors: ["You have reached the maximum of #{MAX_LISTINGS} textbook listings."]
     end
   end
 

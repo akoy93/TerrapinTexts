@@ -2,7 +2,6 @@ features to implement:
   -> display mutual friends
     ~ on sign in, create a set of friend uids, and method to query set for contains
 
-  -> 10 listings max per seller
   -> optimize live search
 
   -> db migration
