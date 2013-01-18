@@ -24,8 +24,14 @@ class TextbookListingsController < ApplicationController
   end
 
   def create
-    if current_user.num_listings < MAX_LISTINGS && current_user.uid == params[:textbook_listing][:uid] # security check
+    puts "7298"
+    puts current_user.num_listings
+    if current_user.num_listings < MAX_LISTINGS
+      exit unless current_user # security check
       params[:textbook_listing][:isbn] = params[:isbn]
+      params[:textbook_listing][:email] = current_user.email
+      params[:textbook_listing][:name] = current_user.name
+      params[:textbook_listing][:uid] = current_user.uid
       @textbook_listing = TextbookListing.new(params[:textbook_listing])
       if @textbook_listing.save
         redirect_to sell_path

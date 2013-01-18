@@ -90,7 +90,6 @@
           <%= f.submit "Create Listing", class: "center btn btn-large btn-primary" %>
         </div>
       </div>
-      <%= f.hidden_field :uid, value: current_user.uid %>
       <% if @book_query %>
         <%= f.hidden_field :thumbnail, value: @book_query[:thumbnail].to_s %>
       <% else %>

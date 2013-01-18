@@ -64,7 +64,7 @@
       </div>
     </div>
     
-    <% if validate_isbn(params[:isbn]) %>
+    <%# if validate_isbn(params[:isbn]) %>
       <br />
       <h3>Listing Information</h3>
       <br />
@@ -96,7 +96,7 @@
       <% else %>
         <%= f.hidden_field :thumbnail, value: 'not-available-thumbnail.jpg' %>
       <% end %>
-    <% end %>
+    <%# end %>
   <% end %>
 </div>
 </div>

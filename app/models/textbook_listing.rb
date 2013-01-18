@@ -3,10 +3,14 @@ class TextbookListing < ActiveRecord::Base
   YEAR_REGEX = /^\d{4}$/
   ISBN_REGEX = /^\d{13}$/
   PRICE_REGEX = /^\d+??(?:\.\d{0,2})?$/
-  attr_accessible :author, :condition, :description_of_condition, :isbn, :price, :publication_year, :publisher, :title, :uid, :thumbnail
+  EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
+  attr_accessible :author, :condition, :description_of_condition, :isbn, :price, 
+    :publication_year, :publisher, :title, :uid, :thumbnail, :email, :course, :name
 
   # Normal usage where " aaa   bbb\t " changes to "aaa bbb"
-  auto_strip_attributes :description_of_condition, :isbn, :author, :publication_year, :publisher, :title, :comment
+  auto_strip_attributes :description_of_condition, :isbn, :author, 
+    :publication_year, :publisher, :title, :comment
   # Squeezes spaces inside the string: "James   Bond  " => "James Bond"
   auto_strip_attributes :author, :description_of_condition, :publisher, :title, :squish => true
 
@@ -19,4 +23,6 @@ class TextbookListing < ActiveRecord::Base
   validates :title, presence: true, length: { maximum: 100 }
   validates :uid, format: { with: UID_REGEX }
   validates :description_of_condition, length: { maximum: 180 }
+  validates :email, presence: true, format: { with: EMAIL_REGEX }
+  validates :name, presence: true
 end
