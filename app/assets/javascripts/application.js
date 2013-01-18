@@ -30,6 +30,12 @@ function handle_textbook_listing_isbn() {
   });
 }
 
+function handle_autocomplete_onclick() {
+  $('.ui-corner-all').click(function() { // click autocomplete result
+    $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), null, "script");
+  });
+}
+
 $(function() {
 //  $("#buy_search").keyup(function() {
 //    $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), null, "script");
@@ -55,6 +61,7 @@ $(function() {
     return false;
   });
 
+  handle_autocomplete_onclick();
   handle_textbook_listing_isbn();
   handle_new_textbook_listing();
 });
