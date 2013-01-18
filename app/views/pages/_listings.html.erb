@@ -10,11 +10,12 @@
     <td class="price"><%= number_to_currency(l[:price]) %></td>
     <td><%= l[:description_of_condition] %></td>
     <% if l[:uid] == current_user.uid %>
-      <td><center>You<br /><%= image_tag(current_user.image, alt: "profile_picture") %></center></td>
+      <td><center><strong>You</strong><br /><%= image_tag(current_user.image, alt: "profile_picture") %></center></td>
     <% else %>
-      <td><center><strong><%= l[:name] %></strong><br /><br />
-        <%= link_to (image_tag 'fb-glyphicon.png', alt: "fb icon"), "http://www.facebook.com/#{l[:uid]}" %> 
-        <%= link_to (image_tag 'mail-glyphicon.png', alt: "mail icon"), "mailto:#{l[:email]}" %></center></td>
+      <td><center><strong class="text-info"><%= l[:name].split.first %></strong><br />
+        <%= image_tag("https://graph.facebook.com/#{l[:uid]}/picture", alt: "profile_picture") %>
+        <br />
+        <%= link_to (image_tag 'fb-glyphicon.png', alt: "fb icon"), "http://www.facebook.com/#{l[:uid]}", width: "18" %> <%= link_to (image_tag 'mail-glyphicon.png', alt: "mail icon", width: "18"), "mailto:#{l[:email]}" %></center></td>
     <% end %>
   </tr>
 <% end %>

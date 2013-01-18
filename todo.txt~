@@ -4,9 +4,6 @@ features to implement:
 
   -> optimize live search
 
-  -> db migration
-    ~ class column, email column, first name column
-    ~ load email and first name into listing row when created
   -> add contact information
 
   -> insert class into column as rake task

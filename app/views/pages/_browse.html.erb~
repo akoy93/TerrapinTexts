@@ -5,7 +5,8 @@
     <th>Thumbnail</th>
     <th>ISBN</th>
     <th><%= sort_link @search, :title, "Title" %></th>
-    <th><%= sort_link @search, :author, "Author(s)" %> & <%= sort_link @search, :publisher, "Publisher" %></th>
+    <th><%= sort_link @search, :author, "Author(s)" %></th>
+    <th><%= sort_link @search, :publisher, "Publisher" %></th>
     <th><%= sort_link @search, :publication_year, "Year" %></th>
     <th><%= sort_link @search, :condition, "Condition" %></th>
     <th><%= sort_link @search, :price, "Price" %></th>

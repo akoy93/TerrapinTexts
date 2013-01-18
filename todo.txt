@@ -4,8 +4,6 @@ features to implement:
 
   -> optimize live search
 
-  -> add contact information
-
   -> insert class into column as rake task
 
   -> add about site on home page
