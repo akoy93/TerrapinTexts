@@ -1,10 +1,10 @@
 features to implement:
   -> display mutual friends
     ~ on sign in, create a set of friend uids, and method to query set for contains
+  -> add user picture if id == uid
 
   -> 10 listings max per seller
   -> optimize live search
-  -> sort listings by most recent as default
 
   -> db migration
     ~ class column, email column, first name column

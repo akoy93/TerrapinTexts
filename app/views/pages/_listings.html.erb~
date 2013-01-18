@@ -1,4 +1,4 @@
-<% (@listings || get_browse_data).each do |l| %>
+<% @listings.each do |l| %>
   <tr>
     <td><%= image_tag l[:thumbnail], alt: "thumbnail", width: "75" %></td>
     <td><%= l[:isbn] %></td>
@@ -9,6 +9,10 @@
     <td><%= condition_to_s l[:condition] %></td>  
     <td class="price"><%= number_to_currency(l[:price]) %></td>
     <td><%= l[:description_of_condition] %></td>
-    <td><center><%= link_to (image_tag 'friend_icon.png', alt: "friend-icon.png"), "http://www.facebook.com/#{l[:uid]}" %></center></td>
+    <% if l[:uid] == current_user.uid %>
+      <td><center><em>You</em><br /><%= image_tag(current_user.image, alt: "profile_picture") %></center></td>
+    <% else %>
+      <td><center><%= link_to (image_tag 'friend_icon.png', alt: "friend-icon.png"), "http://www.facebook.com/#{l[:uid]}" %></center></td>
+    <% end %>
   </tr>
 <% end %>
