@@ -2,6 +2,7 @@ features to implement:
  *-> standardize isbn numbers to 13 digits
  - sell page
   -> update listing feature?
+  -> add facebook messaging info
 
  - buy page
   *-> browse books, show most recently posted listings
@@ -10,9 +11,15 @@ features to implement:
     ~ add db query to assign class code to a listing when it is created
   -> display mutual friends
     ~ on sign in, create a set of friend uids, and method to query set for contains
-  -> listing results are ajax loaded, paginated, and sortable
+  *-> listing results are ajax loaded, paginated, and sortable
 
 -> 10 listings max
--> Search by name
--> limit number of search queries per session
 -> optimize live search
+-> add contact information
+-> autocomplete
+  ~ index only full titles
+  ~ submit on select
+-> sort listings by most recent as default
+
+ - db migration
+ 

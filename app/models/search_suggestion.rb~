@@ -1,6 +1,6 @@
 class SearchSuggestion
   def self.terms_for(prefix)
-    $redis.zrevrange "search-suggestions:#{prefix.downcase}", 0, 2
+    $redis.zrevrange "search-suggestions:#{prefix.downcase}", 0, 3
   end
 
   def self.index_textbook_listings
