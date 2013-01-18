@@ -1,25 +1,14 @@
 features to implement:
- *-> standardize isbn numbers to 13 digits
- - sell page
-  -> update listing feature?
-  -> add facebook messaging info
-
- - buy page
-  *-> browse books, show most recently posted listings
-  *-> search by isbn, author, title, class, combine all searchable fields into one string
-    ~ write script to insert class name into string
-    ~ add db query to assign class code to a listing when it is created
   -> display mutual friends
     ~ on sign in, create a set of friend uids, and method to query set for contains
-  *-> listing results are ajax loaded, paginated, and sortable
 
--> 10 listings max
--> optimize live search
--> add contact information
--> autocomplete
-  ~ index only full titles
-  ~ submit on select
--> sort listings by most recent as default
+  -> 10 listings max per seller
+  -> optimize live search
+  -> sort listings by most recent as default
 
- - db migration
-   ~ class column
+  -> db migration
+    ~ class column, email column, first name column
+    ~ load email and first name into listing row when created
+  -> add contact information
+
+  -> insert class into column as rake task

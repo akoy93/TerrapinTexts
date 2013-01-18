@@ -56,7 +56,7 @@ $(function() {
   });
 
   // ajax pagination
-  $("#products th a, #products .pagination a").live("click", function() {
+  $("#listings th a, #paginator a").live("click", function() {
     $.getScript(this.href);
     return false;
   });

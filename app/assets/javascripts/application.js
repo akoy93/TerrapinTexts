@@ -61,9 +61,9 @@ $(function() {
     return false;
   });
 
-  $('.ui-corner-all').click(function() { // click autocomplete result
-    $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), null, "script");
-  });
+//  $('.ui-corner-all').click(function() { // click autocomplete result
+//    $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), null, "script");
+//  });
   
   handle_textbook_listing_isbn();
   handle_new_textbook_listing();

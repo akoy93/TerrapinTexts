@@ -3,5 +3,9 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
-  $('#q_title_or_author_or_isbn_cont').autocomplete
+  $("#q_title_or_author_or_isbn_cont").autocomplete
     source: "/search_suggestions"
+    minLength: 2
+    select: (event, ui) ->
+      $("#q_title_or_author_or_isbn_cont").val ui.item.label
+      $("#buy_search").submit()
