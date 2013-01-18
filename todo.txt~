@@ -4,9 +4,9 @@ features to implement:
 
   -> optimize live search
 
-  -> add contact information
-
-  -> insert class into column as rake task
+  -> insert course name into column as rake task
+     ~ add search by course name
+     ~ index course name
 
   -> add about site on home page
   -> add most recent listing to home page

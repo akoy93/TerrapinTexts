@@ -7,7 +7,7 @@ class SearchSuggestion
     TextbookListing.find_each do |listing|
       index_term(listing.title)
       #index_term(listing.author)
-      listing.title.split.each { |t| index_term(t) }
+      #listing.title.split.each { |t| index_term(t) }
       #listing.author.split.each { |t| index_term(t) }
     end
   end

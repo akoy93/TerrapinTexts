@@ -16,6 +16,10 @@
 //= require bootstrap
 //= require_tree .
 
+var runningRequest = false;
+var request;
+var keyCounter = 0;
+
 function handle_new_textbook_listing() {
   $("#new_textbook_listing").submit(function() {
     $.get($(this).attr("action"), $(this).serialize(), null, "script");
@@ -36,20 +40,40 @@ $(function() {
 //    return false;
 //  });
 
-  $('#buy_search').bind('keyup', function(e) {
-    if (e.keyCode == 32){ // space
-      $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), null, "script");
+  $('#buy_search').keyup(function(e) {
+    keyCounter++;
+    if (keyCounter % 4 == 0 || e.which == 8){
+      e.preventDefault();
+
+      if (runningRequest) {
+        request.abort();
+      }
+
+      runningRequest = true;
+      request = $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), function(data) {
+        runningRequest = false;
+      }, "script");
       return false;
     }
   });
 
-  $('#buy_search').bind('keyup', function(e) {
-    if (e.keyCode == 8){ // backspace
-      $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), null, "script");
+/*
+  $('#buy_search').keyup(function(e) {
+    e.preventDefault();
+
+    if (runningRequest) {
+      request.abort();
+    }
+
+    runningRequest = true;
+    if (e.which == 8){ // backspace
+      request = $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), function(data) {
+        runningRequest = false;
+      }, "script");
       return false;
     }
   });
-
+*/
   $("#buy_search").submit(function() {
     $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), null, "script");
     return false;
@@ -61,9 +85,9 @@ $(function() {
     return false;
   });
 
-  $('.ui-corner-all').click(function() { // click autocomplete result
-    $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), null, "script");
-  });
+//  $('.ui-corner-all').click(function() { // click autocomplete result
+//    $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), null, "script");
+//  });
   
   handle_textbook_listing_isbn();
   handle_new_textbook_listing();

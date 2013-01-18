@@ -2,9 +2,9 @@ features to implement:
   -> display mutual friends
     ~ on sign in, create a set of friend uids, and method to query set for contains
 
-  -> optimize live search
-
-  -> insert class into column as rake task
+  -> insert course name into column as rake task
+     ~ add search by course name
+     ~ index course name
 
   -> add about site on home page
   -> add most recent listing to home page
