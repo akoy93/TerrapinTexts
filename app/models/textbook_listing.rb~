@@ -9,8 +9,8 @@ class TextbookListing < ActiveRecord::Base
   auto_strip_attributes :description_of_condition, :isbn, :author, :publication_year, :publisher, :title, :comment
   # Squeezes spaces inside the string: "James   Bond  " => "James Bond"
   auto_strip_attributes :author, :description_of_condition, :publisher, :title, :squish => true
-  # Won't set to null even if string is blank. "   " => ""
-  auto_strip_attributes :email, :nullify => false
+
+  :author.titleize!
 
   validates :author, presence: true, length: { maximum: 50 }
   validates :condition, presence: true

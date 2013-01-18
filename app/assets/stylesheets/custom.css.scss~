@@ -83,7 +83,9 @@ footer small {
   @extend .error;
 }
 
-.container {
-  width: 1000px;
+.recolor-well {
+  background-color: #f5f5f5;
 }
+
+
 

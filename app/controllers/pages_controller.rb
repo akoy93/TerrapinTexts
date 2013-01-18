@@ -36,7 +36,7 @@ class PagesController < ApplicationController
 
   def get_book_fields_ajax
     @textbook_listing = TextbookListing.new
-    isbn = params[:isbn].strip!
+    isbn = params[:isbn].strip
     if validate_isbn(isbn)
       @book_query = book_query(isbn)
       @error = { failure: "Unable to generate book preview because ISBN #{isbn} was not found. If your ISBN is correct, enter the book information manually." } unless @book_query

@@ -3,14 +3,13 @@
     <td><%= image_tag l[:thumbnail], alt: "thumbnail", width: "75" %></td>
     <td><%= l[:isbn] %></td>
     <td><%= l[:title] %></td>
-    <td><%= l[:author] %></td>
-    <td><%= l[:publisher] %></td>
+    <td><%= l[:author] %> & <%= l[:publisher] %></td>
     <td><%= l[:publication_year] %></td>
     <td><%= condition_to_s l[:condition] %></td>  
     <td class="price"><%= number_to_currency(l[:price]) %></td>
     <td><%= l[:description_of_condition] %></td>
     <% if l[:uid] == current_user.uid %>
-      <td><center><em>You</em><br /><%= image_tag(current_user.image, alt: "profile_picture") %></center></td>
+      <td><center>You<br /><%= image_tag(current_user.image, alt: "profile_picture") %></center></td>
     <% else %>
       <td><center><%= link_to (image_tag 'friend_icon.png', alt: "friend-icon.png"), "http://www.facebook.com/#{l[:uid]}" %></center></td>
     <% end %>

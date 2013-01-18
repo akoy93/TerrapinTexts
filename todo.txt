@@ -11,3 +11,6 @@ features to implement:
   -> add contact information
 
   -> insert class into column as rake task
+
+  -> add about site on home page
+  -> add most recent listing to home page
