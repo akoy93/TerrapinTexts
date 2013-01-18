@@ -1,0 +1,23 @@
+features to implement:
+ *-> standardize isbn numbers to 13 digits
+ - sell page
+  -> update listing feature?
+
+ - buy page
+  *-> browse books, show most recently posted listings
+  *-> search by isbn, author, title, class, combine all searchable fields into one string
+    ~ write script to insert class name into string
+    ~ add db query to assign class code to a listing when it is created
+  -> display mutual friends
+    ~ on sign in, create a set of friend uids, and method to query set for contains
+  *-> listing results are ajax loaded, paginated, and sortable
+
+-> 10 listings max
+-> Search by name
+-> limit number of search queries per session
+-> optimize live search
+-> add user contact information
+
+-> autocomplete
+  ~ submit form on select
+  ~ index only full titles

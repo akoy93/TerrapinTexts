@@ -1,0 +1,14 @@
+    <% (@listings || get_browse_data).each do |l| %>
+      <tr>
+        <td><%= image_tag l[:thumbnail], alt: "thumbnail", width: "75" %></td>
+        <td><%= l[:isbn] %></td>
+        <td><%= l[:title] %></td>
+        <td><%= l[:author] %></td>
+        <td><%= l[:publisher] %></td>
+        <td><%= l[:publication_year] %></td>
+        <td><%= condition_to_s l[:condition] %></td>  
+        <td class="price"><%= number_to_currency(l[:price]) %></td>
+        <td><%= l[:description_of_condition] %></td>
+        <td><center><%= link_to (image_tag 'friend_icon.png', alt: "friend-icon.png"), "http://www.facebook.com/#{l[:uid]}" %></center></td>
+      </tr>
+    <% end %>
