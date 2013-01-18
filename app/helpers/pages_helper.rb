@@ -3,10 +3,6 @@ module PagesHelper
     isbn && isbn =~ /^\d{13}$/
   end
 
-  def get_browse_data
-    TextbookListing.find(:all).page(params[:page]).per(5) || []
-  end
-
   def get_your_textbooks
     TextbookListing.search(uid_eq: current_user.uid).result
   end

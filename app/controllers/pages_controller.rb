@@ -29,8 +29,7 @@ class PagesController < ApplicationController
 
   def generate_search_results
     @search = TextbookListing.search(params[:q])
-    params.inspect
-    @listings = @search.result.page(params[:page]).per(5)
+    @listings = @search.result.order('created_at DESC').page(params[:page]).per(5)
   end
 
 

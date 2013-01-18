@@ -4,8 +4,6 @@ features to implement:
 
   -> 10 listings max per seller
   -> optimize live search
-  -> autocomplete
-    ~ submit on select
   -> sort listings by most recent as default
 
   -> db migration
