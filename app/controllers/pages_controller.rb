@@ -8,6 +8,7 @@ class PagesController < ApplicationController
   end
 
   def buy
+    params[:q].each { |k,v| params[:q][k].strip! } if params[:q]
     if params[:q] && params[:q][params[:q].keys.first] =~ /^\d{1,}$/ 
       generate_book_preview(params[:q][params[:q].keys.first])
     end
@@ -35,7 +36,7 @@ class PagesController < ApplicationController
 
   def get_book_fields_ajax
     @textbook_listing = TextbookListing.new
-    isbn = params[:isbn]
+    isbn = params[:isbn].strip!
     if validate_isbn(isbn)
       @book_query = book_query(isbn)
       @error = { failure: "Unable to generate book preview because ISBN #{isbn} was not found. If your ISBN is correct, enter the book information manually." } unless @book_query

@@ -5,6 +5,11 @@ class TextbookListing < ActiveRecord::Base
   PRICE_REGEX = /^\d+??(?:\.\d{0,2})?$/
   attr_accessible :author, :condition, :description_of_condition, :isbn, :price, :publication_year, :publisher, :title, :uid, :thumbnail
 
+  # Normal usage where " aaa   bbb\t " changes to "aaa bbb"
+  auto_strip_attributes :description_of_condition, :isbn, :author, :publication_year, :publisher, :title, :comment
+  # Squeezes spaces inside the string: "James   Bond  " => "James Bond"
+  auto_strip_attributes :author, :description_of_condition, :publisher, :title, :squish => true
+
   validates :author, presence: true, length: { maximum: 50 }
   validates :condition, presence: true
   validates :isbn, format: { with: ISBN_REGEX, message: "should be 13 digits." }

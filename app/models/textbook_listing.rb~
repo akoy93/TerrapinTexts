@@ -5,7 +5,12 @@ class TextbookListing < ActiveRecord::Base
   PRICE_REGEX = /^\d+??(?:\.\d{0,2})?$/
   attr_accessible :author, :condition, :description_of_condition, :isbn, :price, :publication_year, :publisher, :title, :uid, :thumbnail
 
-  default_scope order("created_at DESC") 
+  # Normal usage where " aaa   bbb\t " changes to "aaa bbb"
+  auto_strip_attributes :description_of_condition, :isbn, :author, :publication_year, :publisher, :title, :comment
+  # Squeezes spaces inside the string: "James   Bond  " => "James Bond"
+  auto_strip_attributes :author, :description_of_condition, :publisher, :title, :squish => true
+  # Won't set to null even if string is blank. "   " => ""
+  auto_strip_attributes :email, :nullify => false
 
   validates :author, presence: true, length: { maximum: 50 }
   validates :condition, presence: true

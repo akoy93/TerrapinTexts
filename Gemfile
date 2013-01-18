@@ -7,6 +7,7 @@ gem 'ransack'
 gem 'kaminari'
 gem 'rack-mini-profiler'
 gem 'redis'
+gem "auto_strip_attributes", "~> 1.0"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
