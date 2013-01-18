@@ -8,9 +8,8 @@ class PagesController < ApplicationController
   end
 
   def buy
-    if params[:q] && params[:q][:isbn_eq]
-      isbn = params[:q][:isbn_eq]
-      generate_book_preview(isbn)
+    if params[:q] && params[:q][params[:q].keys.first] =~ /^\d{1,}$/ 
+      generate_book_preview(params[:q][params[:q].keys.first])
     end
     generate_search_results
   end
@@ -30,6 +29,7 @@ class PagesController < ApplicationController
 
   def generate_search_results
     @search = TextbookListing.search(params[:q])
+    params.inspect
     @listings = @search.result.page(params[:page]).per(5)
   end
 

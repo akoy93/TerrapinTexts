@@ -5,9 +5,7 @@ class TextbookListing < ActiveRecord::Base
   PRICE_REGEX = /^\d+??(?:\.\d{0,2})?$/
   attr_accessible :author, :condition, :description_of_condition, :isbn, :price, :publication_year, :publisher, :title, :uid, :thumbnail
 
-  def self.get_textbook_listings(field, value)
-    find(:all, conditions: [field + ' == "' + value + '"'])
-  end
+  default_scope order("created_at DESC") 
 
   validates :author, presence: true, length: { maximum: 50 }
   validates :condition, presence: true
