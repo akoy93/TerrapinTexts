@@ -18,12 +18,14 @@ class TextbookListingsController < ApplicationController
   end
 
   def create
-    params[:textbook_listing][:isbn] = params[:isbn]
-    @textbook_listing = TextbookListing.new(params[:textbook_listing])
-    if @textbook_listing.save
-      redirect_to sell_path
-    else
-      redirect_to sell_path errors: @textbook_listing.errors.full_messages
+    if current_user.uid == params[:textbook_listing][:uid] # security check
+      params[:textbook_listing][:isbn] = params[:isbn]
+      @textbook_listing = TextbookListing.new(params[:textbook_listing])
+      if @textbook_listing.save
+        redirect_to sell_path
+      else
+        redirect_to sell_path errors: @textbook_listing.errors.full_messages
+      end
     end
   end
 
