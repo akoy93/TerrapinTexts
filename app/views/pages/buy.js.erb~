@@ -1,2 +1,3 @@
 // render ajax search results
-$("#search_results").html("<%= escape_javascript(render("search_results")) %>");
+$("#search_results").html("<%= escape_javascript(render("search_results")) if @previous_listings && @previous_listings != @listings %>");
+$("#textbook_listings").html("<%= escape_javascript(render("browse")) %>");

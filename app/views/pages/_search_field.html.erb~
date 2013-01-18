@@ -1,2 +1,2 @@
-<input type="text" size="30" placeholder="Enter an ISBN, a Book Title, or an Author" name="q[title_or_author_or_isbn_cont]" id="q_title_or_author_or_isbn_cont" class="input-xxlarge search-query live-search">
+<input type="text" size="30" placeholder="Enter an ISBN, a Book Title, or an Author" name="q[title_or_author_or_isbn_cont]" id="q_title_or_author_or_isbn_cont" class="input-xxlarge live-search">
 <input type="submit" value="Search" name="commit" class="btn">

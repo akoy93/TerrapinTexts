@@ -29,8 +29,9 @@ class PagesController < ApplicationController
   end
 
   def generate_search_results
+    @previous_listings = @listings
     @search = TextbookListing.search(params[:q])
-    @listings = @search.result.reverse.page(params[:page]).per(5)
+    @listings = @search.result.page(params[:page]).per(5)
   end
 
 

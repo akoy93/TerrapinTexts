@@ -1,11 +1,5 @@
+<div class="pull-right"><%= paginate @listings %></div>
 <table class="table table-striped">
-<div class="pull-left"><%= paginate @listings %></div>
-  <div class="pull-right">
-    <%= search_form_for @search, url: buy_path, action: "/search", 
-      method: "get", id: "buy_search" do |f| %>
-      <div id="dynamic_search_field"><%= render 'search_field' %></div>
-    <% end %>
-  </div>
   <tr>
     <th>Thumbnail</th>
     <th>ISBN</th>
