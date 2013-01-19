@@ -1,4 +1,7 @@
+<div class="row-fluid">
+<div class="pull-left"><h3>Textbook Listings</h3></div>
 <div class="pull-right" id="paginator"><%= paginate @listings %></div>
+</div>
 <br />
 <table class="table table-striped" id="listings">
   <tr>
