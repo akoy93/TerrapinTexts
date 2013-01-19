@@ -29,6 +29,7 @@
       </div>
     </div>
 
+    <% if validate_isbn(params[:isbn]) %>
     <div class="row-fluid">
       <div class="span4">
         <%= f.label :title %>
@@ -63,7 +64,8 @@
         <% end %>
       </div>
     </div>
-    
+    <% end %>    
+
     <%# if validate_isbn(params[:isbn]) %>
       <br />
       <h3>Listing Information</h3>
