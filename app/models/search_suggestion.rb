@@ -4,10 +4,12 @@ class SearchSuggestion
   end
 
   def self.index_textbook_listings
+    $redis.flushall
     TextbookListing.find_each do |listing|
       index_term(listing.title)
       #index_term(listing.author)
       listing.title.split.each { |t| index_term(t) }
+      listing.course.split(" ").each { |t| index_term(t) } if listing.course
       #listing.author.split.each { |t| index_term(t) }
     end
   end
