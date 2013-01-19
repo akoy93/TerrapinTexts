@@ -38,6 +38,13 @@ function copyText (text) {
   window.prompt ("Copy email to clipboard: Ctrl+C, Enter", text);
 }
 
+function new_window() {
+  $('.new-window').click(function(e) {
+    e.preventDefault();
+    window.open($(this).attr('href'));
+  });
+}
+
 $(function() {
 //  $("#buy_search").keyup(function() {
 //    $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), null, "script");
@@ -95,11 +102,7 @@ $(function() {
     copyText($(this).attr('id'));
   });
 
-  $('.new-window').click(function(e) {
-    e.preventDefault();
-    window.open($(this).attr('href'));
-  });
-  
+  new_window();
   handle_textbook_listing_isbn();
   handle_new_textbook_listing();
 });

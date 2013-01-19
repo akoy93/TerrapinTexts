@@ -34,8 +34,15 @@ function handle_textbook_listing_isbn() {
   });
 }
 
-function copyText (sText) {
-  window.prompt ("Copy email to clipboard: Ctrl+C, Enter", sText);
+function copyText (text) {
+  window.prompt ("Copy email to clipboard: Ctrl+C, Enter", text);
+}
+
+function new_window() {
+  $('.new-window').click(function(e) {
+    e.preventDefault();
+    window.open($(this).attr('href'));
+  });
 }
 
 $(function() {
