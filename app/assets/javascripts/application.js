@@ -84,6 +84,13 @@ $(function() {
     $.getScript(this.href);
     return false;
   });
+
+  $('.email-popover').popover({ html : true, trigger: 'click' });
+  
+  $('.new-window').click(function(e) {
+    e.preventDefault();
+    window.open(this.href);
+  });
   
   handle_textbook_listing_isbn();
   handle_new_textbook_listing();

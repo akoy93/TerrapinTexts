@@ -15,7 +15,10 @@
       <td><center><strong class="text-info"><%= l[:name].split.first %></strong><br />
         <%= image_tag("https://graph.facebook.com/#{l[:uid]}/picture", alt: "profile_picture") %>
         <br />
-        <%= link_to (image_tag 'fb-glyphicon.png', alt: "fb icon"), "http://www.facebook.com/#{l[:uid]}", width: 20 %> <%= link_to (image_tag 'mail-glyphicon.png', alt: "mail icon", width: 20), "mailto:#{l[:email]}" %></center></td>
+        <% title = "Contact #{l[:name].split.first}" %>
+        <% content = "<strong>Email: </strong>#{l[:email]}" %>
+        <%= link_to (image_tag 'fb-glyphicon.png', alt: "fb icon", width: "20"), "http://www.facebook.com/#{l[:uid]}" %> 
+        <%= link_to((image_tag 'mail-glyphicon.png', alt: "mail icon", width: "20"), '#', :class => "email-popover", :title => "#{title.html_safe}", "data-content" => "#{content.html_safe}") %>
     <% end %>
   </tr>
 <% end %>
