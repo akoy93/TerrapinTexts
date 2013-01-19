@@ -1,15 +1,13 @@
 <% provide(:title, "Buy") %>
 
 <% if current_user %>
+  <h3>Textbook Listings</h3>
   <div class="center">
     <%= search_form_for @search, url: buy_path, action: "/search", 
       method: "get", id: "buy_search" do |f| %>
       <div id="dynamic_search_field"><%= render 'search_field' %></div>
     <% end %>
   </div>
-  <br />
-  <br />
-  <br />
   <div id="search_results"></div>
   <div id="textbook_listings"><%= render 'browse' %></div>
 <% else %>

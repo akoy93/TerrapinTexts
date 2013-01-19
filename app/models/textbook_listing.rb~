@@ -25,5 +25,4 @@ class TextbookListing < ActiveRecord::Base
   validates :description_of_condition, length: { maximum: 180 }
   validates :email, presence: true, format: { with: EMAIL_REGEX }
   validates :name, presence: true
-
 end
