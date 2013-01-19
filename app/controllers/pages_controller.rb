@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   require 'open-uri'
   require 'json'
 
-  GOOGLE_BOOKS_API = "https://www.googleapis.com/books/v1/volumes?q="
+  GOOGLE_BOOKS_API = "https://www.googleapis.com/books/v1/volumes?q=isbn:"
 
   def home
   end
