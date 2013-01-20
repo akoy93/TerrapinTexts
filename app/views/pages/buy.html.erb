@@ -7,10 +7,13 @@
       <div id="dynamic_search_field"><%= render 'search_field' %></div>
     <% end %>
   </div>
-  <div class="pull-right">
+  <div class="row-fluid">
+    <div class="span10"><h3>Textbook Listings</h3></div>
+    <div class="span2">
     <label class="checkbox">
-      <input type="checkbox"> Only show friends?
+      <input type="checkbox"> <strong>Facebook friends only?</strong><br />
     </label>
+    </div>
   </div>
   <div id="search_results"></div>
   <div id="textbook_listings"><%= render 'browse' %></div>

@@ -18,16 +18,16 @@ require 'set'
 #  email            :string(255)
 #
 
-
 class User < ActiveRecord::Base
   GRAPH_API = ["https://graph.facebook.com/", "?fields=friends&access_token="]
 
   attr_accessible :name, :email, :uid
 
-  @@friends = {}
+  @@friends = {} # cache friendslists by uid
 
   def friends
     begin
+      if @@friends.size == 25 then @@friends.clear end # clear cache at 25 users
       unless @@friends[uid]
         @@friends[uid] = Set.new
         url = GRAPH_API[0] + uid + GRAPH_API[1] + oauth_token
