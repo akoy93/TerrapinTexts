@@ -27,7 +27,7 @@ class TextbookListingsController < ApplicationController
     puts "7298"
     puts current_user.num_listings
     if current_user.num_listings < MAX_LISTINGS
-      exit unless current_user
+      exit unless current_user # security check
       params[:textbook_listing][:isbn] = params[:isbn]
       params[:textbook_listing][:email] = current_user.email
       params[:textbook_listing][:name] = current_user.name

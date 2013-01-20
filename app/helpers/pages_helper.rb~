@@ -1,6 +1,26 @@
 module PagesHelper
+  require 'open-uri'
+  require 'json'
+  require 'set'
+
+  GRAPH_API = ["https://graph.facebook.com/", "?fields=friends&access_token="]
+
   def validate_isbn(isbn)
     isbn && isbn =~ /^\d{13}$/
+  end
+
+  def load_friends
+    begin
+      unless @friends && @friends.size > 0
+        url = GRAPH_API[0] + current_user.uid + GRAPH_API[1] + current_user.oauth_token
+        data = JSON.parse(open(url).read)
+        data["friends"]["data"].each { |h| @friends.add h["id"] }
+        puts "8888"
+        @friends.each { |id| puts id }
+      end
+    rescue => e
+      p e
+    end
   end
 
   def get_your_textbooks

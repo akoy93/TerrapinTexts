@@ -2,10 +2,8 @@ class SessionsController < ApplicationController
   def create
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
-    me = FbGraph::User.new('me', :access_token => session[:omniauth]["credentials"]["token"])
-    puts "7298"
-    me.friend_lists.inspect
-    current_user.friends_list = me.friend_lists
+    puts "1234"
+    session.inspect
     redirect_to buy_url
   end
 

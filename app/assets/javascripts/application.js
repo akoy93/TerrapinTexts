@@ -64,7 +64,6 @@ $(function() {
       request = $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), function(data) {
         runningRequest = false;
       }, "script");
-      return false;
     }
   });
 
@@ -100,6 +99,18 @@ $(function() {
   $('.email').live("click", function(e) {
     e.preventDefault();
     copyText($(this).attr('id'));
+  });
+
+  // filter by friends
+  $('input:checkbox').live('change', function(){
+    if($(this).is(':checked')){
+      var input = $("<input>").attr("type", "hidden").attr("name", "friends").val("true");
+      $('#buy_search').append($(input));
+    } else {
+      $('#buy_search').children(':input[value="true"]').attr("disabled", "disabled");
+    }
+    $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), null, "script");
+    return false;
   });
 
   new_window();

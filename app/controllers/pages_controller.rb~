@@ -1,18 +1,24 @@
 class PagesController < ApplicationController
   require 'open-uri'
   require 'json'
+  require 'set'
 
-  GOOGLE_BOOKS_API = "https://www.googleapis.com/books/v1/volumes?q="
+  GOOGLE_BOOKS_API = "https://www.googleapis.com/books/v1/volumes?q=isbn:"
+  GRAPH_API = ["https://graph.facebook.com/", "?fields=friends&access_token="]
 
   def home
   end
 
   def buy
+    if @friends
+      puts "1234"
+    end
+    @friends ||= current_user.friends if params[:friends]
     params[:q].each { |k,v| params[:q][k].strip! } if params[:q]
     if params[:q] && params[:q][params[:q].keys.first] =~ /^\d{1,}$/ 
       generate_book_preview(params[:q][params[:q].keys.first])
     end
-    generate_search_results
+    generate_search_results(params[:friends])
   end
 
   def sell
@@ -28,11 +34,16 @@ class PagesController < ApplicationController
     end 
   end
 
-  def generate_search_results
+  def generate_search_results(filter)
     @search = TextbookListing.search(params[:q])
-    @listings = @search.result.order('created_at DESC').page(params[:page]).per(5)
+    # filter only friends
+    if filter == "true"
+      @listings = Kaminari.paginate_array(@search.result.order('created_at DESC').select { |l| l if @friends.include? l.uid }).page(params[:page]).per(5)
+    else
+      # filter all
+      @listings = @search.result.order('created_at DESC').page(params[:page]).per(5)
+    end
   end
-
 
   def get_book_fields_ajax
     @textbook_listing = TextbookListing.new
