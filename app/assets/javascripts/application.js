@@ -46,11 +46,6 @@ function new_window() {
 }
 
 $(function() {
-//  $("#buy_search").keyup(function() {
-//    $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), null, "script");
-//    return false;
-//  });
-
   $('#buy_search').keyup(function(e) {
     keyCounter++;
     if (keyCounter % 4 == 0 || e.which == 8){
@@ -67,30 +62,19 @@ $(function() {
     }
   });
 
-/*
-  $('#buy_search').keyup(function(e) {
-    e.preventDefault();
-
-    if (runningRequest) {
-      request.abort();
-    }
-
-    runningRequest = true;
-    if (e.which == 8){ // backspace
-      request = $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), function(data) {
-        runningRequest = false;
-      }, "script");
-      return false;
-    }
-  });
-*/
   $("#buy_search").submit(function() {
     $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), null, "script");
     return false;
   });
 
   // ajax pagination
-  $("#listings th a, #paginator a").live("click", function() {
+  $("#paginator a").live("click", function() {
+    $.getScript(this.href);
+    return false;
+  });
+
+  // preserve search when sorting
+  $("#listings tr th a").live("click", function() {
     $.getScript(this.href);
     return false;
   });
@@ -101,14 +85,8 @@ $(function() {
     copyText($(this).attr('id'));
   });
 
-  // filter by friends
+  // filter by friends ajax
   $('input:checkbox').live('change', function(){
-    if($(this).is(':checked')){
-      var input = $("<input>").attr("type", "hidden").attr("name", "friends").val("true");
-      $('#buy_search').append($(input));
-    } else {
-      $('#buy_search').children(':input[value="true"]').attr("disabled", "disabled");
-    }
     $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), null, "script");
     return false;
   });

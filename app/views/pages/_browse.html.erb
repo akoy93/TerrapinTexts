@@ -2,15 +2,15 @@
 <br />
 <table class="table table-striped" id="listings">
   <tr>
-    <th><%= sort_link @search, :created_at, "Posted" %></th>
+    <th><%= sort_link @search, :created_at, "Posted", {friends: params[:friends]} %></th>
     <th>Thumbnail</th>
     <th>ISBN-13</th>
-    <th><%= sort_link @search, :title, "Title" %></th>
-    <th><%= sort_link @search, :author, "Author(s)" %></th>
-    <th><%= sort_link @search, :publisher, "Publisher" %></th>
-    <th><%= sort_link @search, :publication_year, "Year" %></th>
-    <th><%= sort_link @search, :condition, "Condition" %></th>
-    <th><%= sort_link @search, :price, "Price" %></th>
+    <th><%= sort_link @search, :title, "Title", {friends: params[:friends]}  %></th>
+    <th><%= sort_link @search, :author, "Author(s)", {friends: params[:friends]}  %></th>
+    <th><%= sort_link @search, :publisher, "Publisher", {friends: params[:friends]}  %></th>
+    <th><%= sort_link @search, :publication_year, "Year", {friends: params[:friends]}  %></th>
+    <th><%= sort_link @search, :condition, "Condition", {friends: params[:friends]}  %></th>
+    <th><%= sort_link @search, :price, "Price", {friends: params[:friends]}  %></th>
     <th>Description</th>
     <th>Contact</th>
   </tr>

@@ -2,7 +2,7 @@
 <br />
 <table class="table table-striped" id="listings">
   <tr>
-    <th>Date Posted</th>
+    <th><%= sort_link @search, :created_at, "Posted" %></th>
     <th>Thumbnail</th>
     <th>ISBN-13</th>
     <th><%= sort_link @search, :title, "Title" %></th>
