@@ -38,13 +38,6 @@ function copyText (text) {
   window.prompt ("Copy email to clipboard: Ctrl+C, Enter", text);
 }
 
-function new_window() {
-  $('.new-window').click(function(e) {
-    e.preventDefault();
-    window.open($(this).attr('href'));
-  });
-}
-
 $(function() {
   $('#buy_search').keyup(function(e) {
     keyCounter++;
@@ -91,7 +84,12 @@ $(function() {
     return false;
   });
 
-  new_window();
+  // links open in new window/tab
+  $('.new-window').live('click', function(e) {
+    e.preventDefault();
+    window.open($(this).attr('href'));
+  });
+  
   handle_textbook_listing_isbn();
   handle_new_textbook_listing();
 });

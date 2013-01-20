@@ -73,14 +73,12 @@ $(function() {
     return false;
   });
 
-/*
   // preserve search when sorting
   $("#listings tr th a").live("click", function() {
     $.getScript(this.href);
-    $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), null, "script");
     return false;
   });
-*/
+
   // copy email to clipboard
   $('.email').live("click", function(e) {
     e.preventDefault();
@@ -93,7 +91,12 @@ $(function() {
     return false;
   });
 
-  new_window();
+  // links open in new window/tab
+  $('.new-window').live('click', function(e) {
+    e.preventDefault();
+    window.open($(this).attr('href'));
+  });
+  
   handle_textbook_listing_isbn();
   handle_new_textbook_listing();
 });
