@@ -1,7 +1,7 @@
 <% provide(:title, "Buy") %>
 
 <% if current_user %>
-  <h3>Textbook Listings</h3>
+  <% current_user.load_friends_list unless current_user.friends %>
   <div class="center">
     <%= search_form_for @search, url: buy_path, action: "/search", 
       method: "get", id: "buy_search" do |f| %>

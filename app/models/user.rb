@@ -1,3 +1,7 @@
+require 'json'
+require 'set'
+require 'open-uri'
+
 # == Schema Information
 #
 # Table name: users
@@ -14,8 +18,25 @@
 #  email            :string(255)
 #
 
+GRAPH_API = ["https://graph.facebook.com/", "?fields=friends&access_token="]
+
 class User < ActiveRecord::Base
   attr_accessible :name, :email, :uid
+  attr_accessor :friends
+
+  def load_friends_list
+    unless friends && friends.size > 0
+      begin
+        friends = Set.new
+        url = GRAPH_API[0] + uid + GRAPH_API[1] + oauth_token
+        data = JSON.parse(open(url).read)
+        data["friends"]["data"].each { |h| @friends.add h["id"] }
+        friends.each { |id| puts id }
+      rescue => e
+        p e
+      end
+    end
+  end
 
   def num_listings
     TextbookListing.search(uid_eq: uid).result.count
