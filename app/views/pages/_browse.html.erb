@@ -1,3 +1,4 @@
+<div class="pull-right row" id="paginator"><%= paginate @listings %></div>
 <br />
 <table class="table table-striped" id="listings">
   <tr>
@@ -14,7 +15,6 @@
     <th>Contact</th>
   </tr>
   <tbody>
-    <%= render 'listings' %>
+    <%= render @listings %>
   </tbody>
 </table>
-<div class="pull-right" id="paginator"><%= paginate @listings %></div>
