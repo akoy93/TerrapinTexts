@@ -6,8 +6,6 @@ class PagesController < ApplicationController
   GOOGLE_BOOKS_API = "https://www.googleapis.com/books/v1/volumes?q=isbn:"
   GRAPH_API = ["https://graph.facebook.com/", "?fields=friends&access_token="]
 
-  @@searches_cache = {}
-
   def home
   end
 
@@ -34,18 +32,13 @@ class PagesController < ApplicationController
   end
 
   def generate_search_results(filter)
-    if @@searches_cache[params[:q]]
-      @search = @@searches_cache[params[:q]]
-    else
-      @search = TextbookListing.search(params[:q])
-      @@searches_cache[params[:q]] = @search
-    end
+    @search = TextbookListing.search(params[:q])
     # filter only friends
     if filter == "true"
-      @listings = Kaminari.paginate_array(@search.result.order('created_at DESC').select { |l| l if @friends.include? l.uid }).page(params[:page]).per(5)
+      @listings = Kaminari.paginate_array(@search.result.order('created_at DESC').select { |l| l if @friends.include? l.uid }).page(params[:page]).per(7)
     else
       # filter all
-      @listings = @search.result.order('created_at DESC').page(params[:page]).per(5)
+      @listings = @search.result.order('created_at DESC').page(params[:page]).per(7)
     end
   end
 

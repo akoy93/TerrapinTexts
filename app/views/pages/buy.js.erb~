@@ -1,4 +1,12 @@
-// render ajax search results
-$("#search_results").html("<%= escape_javascript(render("search_results")) %>");
-$("#textbook_listings").html("<%= escape_javascript(render("browse")) %>");
-alert(<%= params.to_s %>);
+<% if params[:page] %>
+  $('#listings tbody').after('<%= j render(@listings) %>');
+  <% if @listings.current_page < @listings.num_pages %>
+    $('.pagination').replaceWith('<%= j paginate(@listings) %>');
+  <% else %>
+    $('.pagination').remove();
+  <% end %>
+<% else %>
+  // render ajax search results
+  $("#search_results").html("<%= escape_javascript(render("search_results")) %>");
+  $("#textbook_listings").html("<%= escape_javascript(render("browse")) %>");
+<% end %>

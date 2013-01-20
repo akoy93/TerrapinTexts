@@ -11,3 +11,12 @@ jQuery ->
       $("#buy_search").submit()
 
 # adjust maximum number of terms in search_suggestions model
+
+jQuery ->
+  if $('.pagination').length
+    $(window).scroll ->
+      url = $('[rel=next]').attr('href')
+      if url && $(window).scrollTop() > $(document).height() - $(window).height() - 50
+        $('.pagination').text("Fetching more listings...")
+        $.getScript(url)
+    $(window).scroll()
