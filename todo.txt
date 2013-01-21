@@ -1,3 +1,4 @@
 features to implement:
   -> add user count to home page
   -> add sort by author last name?
+  -> add classes to db

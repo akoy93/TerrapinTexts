@@ -1,3 +1,4 @@
+<input type="hidden" name="q[s]" id="q_s" value=<%= if params[:q] then params[:q][:s] else "created_at+desc" end %>>
 <br />
 <table class="table table-striped" id="listings">
   <tr>
@@ -11,7 +12,7 @@
     <th><%= sort_link @search, :condition, "Condition", {friends: params[:friends]}  %></th>
     <th><%= sort_link @search, :price, "Price", {friends: params[:friends]}  %></th>
     <th>Description</th>
-    <th>Contact</th>
+    <% if current_user %><th>Contact</th><% end %>
   </tr>
   <tbody id="listings-body">
     <%= render @listings %>

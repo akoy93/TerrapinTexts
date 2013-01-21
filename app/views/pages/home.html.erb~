@@ -7,6 +7,7 @@
       Connect with Facebook to Get Started
     </a>
   </p>
+  <h3>There are currently <%= TextbookListing.count('id', :distinct => true) %> textbook listings on Texts4Terps!</h3>
 </div>
 <br />
 
@@ -27,7 +28,7 @@
     <% if current_user %><th>Contact</th><% end %>
   </tr>
   <tbody id="listings-body">
-    <%= render TextbookListing.search.last %>
+    <%= render TextbookListing.search.result.last %>
   </tbody>
 </table>
 

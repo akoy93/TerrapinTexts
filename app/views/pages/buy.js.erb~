@@ -9,4 +9,6 @@
   // render ajax search results
   $("#search_results").html("<%= escape_javascript(render("search_results")) %>");
   $("#textbook_listings").html("<%= escape_javascript(render("browse")) %>");
+  $("#q_s").val(<%= j params[:q][:s].to_s %>);
+  $(window).scroll()
 <% end %>

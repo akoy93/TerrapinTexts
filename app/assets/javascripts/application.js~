@@ -38,13 +38,6 @@ function copyText (text) {
   window.prompt ("Copy email to clipboard: Ctrl+C, Enter", text);
 }
 
-function new_window() {
-  $('.new-window').click(function(e) {
-    e.preventDefault();
-    window.open($(this).attr('href'));
-  });
-}
-
 $(function() {
   $('#buy_search').keyup(function(e) {
     keyCounter++;
@@ -75,6 +68,7 @@ $(function() {
 
   // preserve search when sorting
   $("#listings tr th a").live("click", function() {
+    $("#q_s").val('price asc');
     $.getScript(this.href);
     return false;
   });
