@@ -35,10 +35,10 @@ class PagesController < ApplicationController
     @search = TextbookListing.search(params[:q])
     # filter only friends
     if filter == "true"
-      @listings = Kaminari.paginate_array(@search.result.order('created_at DESC').select { |l| l if @friends.include? l.uid }).page(params[:page]).per(5)
+      @listings = Kaminari.paginate_array(@search.result.order('created_at DESC').select { |l| l if @friends.include? l.uid }).page(params[:page]).per(10)
     else
       # filter all
-      @listings = @search.result.order('created_at DESC').page(params[:page]).per(5)
+      @listings = @search.result.order('created_at DESC').page(params[:page]).per(10)
     end
   end
 

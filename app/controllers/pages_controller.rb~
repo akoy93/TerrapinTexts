@@ -10,9 +10,6 @@ class PagesController < ApplicationController
   end
 
   def buy
-    @s = params[:q][:s] if params[:q]
-    puts "312"
-    puts @s
     @friends = current_user.friends if params[:friends]
     params[:q].each { |k,v| params[:q][k].strip! } if params[:q]
     if params[:q] && params[:q][params[:q].keys.first] =~ /^\d{1,}$/ 
