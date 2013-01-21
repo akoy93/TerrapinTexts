@@ -1,28 +1,31 @@
 <% provide(:title, "Buy") %>
 
-<% if current_user %>
-  <%= form_tag buy_path, :method => 'get', :id => "buy_search", action: "/search" do %>
-    <p>
-      <div class="center">
-        <input type="text" size="30" placeholder="Enter a Class Code, an ISBN-13, a Book Title, or an Author" name="q[title_or_author_or_isbn_or_course_cont]" id="q_title_or_author_or_isbn_or_course_cont" class="input-xxlarge typeahead">
-        <input type="submit" value="Search" name="commit" class="btn">
-      </div>
-    </p>
+<% unless current_user %>
+  <br />
+  <div class="alert alert-error">
+    You must sign in with Facebook in order to view seller contact information.
+  </div>
+<% end %>
 
-    <div class="row-fluid">
-      <div class="span10"><h3>Textbook Listings</h3></div>
+<%= form_tag buy_path, :method => 'get', :id => "buy_search", action: "/search" do %>
+  <p>
+    <div class="center">
+      <input type="text" size="30" placeholder="Enter a Class Code, an ISBN-13, a Book Title, or an Author" name="q[title_or_author_or_isbn_or_course_cont]" id="q_title_or_author_or_isbn_or_course_cont" class="input-xxlarge typeahead">
+      <input type="submit" value="Search" name="commit" class="btn">
+    </div>
+  </p>
+
+  <div class="row-fluid">
+    <div class="span10"><h3>Textbook Listings</h3></div>
+    <% if current_user %>
       <div class="span2">
         <label class="checkbox">
           <input type="checkbox" name="friends" value="true"> <strong>Facebook friends only?</strong><br />
         </label>
       </div>
-    </div>
-  <div id="search_results"></div>
-  <div id="textbook_listings"><%= render 'browse' %></div>
-<% end %>
-<% else %>
-  <div class="alert alert-error">
-    You must sign in with Facebook in order to access this page!
+    <% end %>
   </div>
+<div id="search_results"></div>
+<div id="textbook_listings"><%= render 'browse' %></div>
 <% end %>
 

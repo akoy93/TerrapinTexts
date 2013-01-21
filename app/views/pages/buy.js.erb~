@@ -1,5 +1,5 @@
 <% if params[:page] %>
-  $('#listings-body').append('j render(@listings)');
+  $('#listings-body').append('<%= j render(@listings) %>');
   <% if @listings.current_page < @listings.num_pages %>
     $('.pagination').replaceWith('<%= j paginate(@listings) %>');
   <% else %>

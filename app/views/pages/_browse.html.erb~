@@ -1,3 +1,4 @@
+<br />
 <table class="table table-striped" id="listings">
   <tr>
     <th><%= sort_link @search, :created_at, "Posted", {friends: params[:friends]} %></th>

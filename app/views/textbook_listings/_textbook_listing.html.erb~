@@ -6,7 +6,7 @@
   <td><%= textbook_listing.author %></td>
   <td><%= textbook_listing.publisher %></td>
   <td><%= textbook_listing.publication_year %></td>
-  <td><%= textbook_listing.condition %></td>  
+  <td><%= condition_to_s textbook_listing.condition %></td>  
   <td class="price"><%= number_to_currency(textbook_listing.price) %></td>
   <td><%= textbook_listing.description_of_condition %></td>
   <% if textbook_listing.uid == current_user.uid %>
