@@ -28,7 +28,6 @@ class TextbookListingsController < ApplicationController
     if current_user.num_listings < MAX_LISTINGS
       exit unless current_user # security check
       params[:textbook_listing][:isbn] = params[:isbn]
-      params[:textbook_listing][:email] = current_user.email
       params[:textbook_listing][:name] = current_user.name
       params[:textbook_listing][:uid] = current_user.uid
       @textbook_listing = TextbookListing.new(params[:textbook_listing])

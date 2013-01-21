@@ -1,4 +1,4 @@
-<% listings = TextbookListingsController.get_textbook_listings("uid", current_user.uid) %>
+<% listings = get_your_textbooks %>
 <% unless listings.empty? %>
   <h3>Your Textbook Listings:</h3>
   <br />
@@ -17,6 +17,7 @@
               <strong>Publication Year:</strong> <%= t[:publication_year].to_s %><br />
               <strong>Condition:</strong> <%= condition_to_s(t[:condition]) %><br />
               <strong>Price:</strong> <%= number_to_currency(t[:price]) %><br />
+              <strong>Email</strong> <%= t[:email].to_s %><br />
               <strong>ISBN:</strong> <%= t[:isbn].to_s %><br />
               <strong>Listing Description:</strong> <%= t[:description_of_condition].to_s %>
             </div>

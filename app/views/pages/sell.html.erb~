@@ -2,11 +2,11 @@
 
 <% if current_user %>
   <div id="error_messages"></div>
-  <% if current_user.num_listings < max_listings %>
+  <% if current_user.num_listings < TextbookListingsController.max_listings %>
     <div class="alert alert-info"><strong>Important: </strong>For best results, ensure that your Facebook account settings are configured to allow you to receive Facebook messages from non-friends. Facebook and the email linked to your Facebook account are a buyer's primary means of contacting you. Provide additional contact information in your listing if necessary.</div>
     <div id="dynamic_listing_form"><%= render 'listing_form' %></div>
   <% else %>
-    <div class="alert alert-error">You have reached the maximum of <%= max_listings %> textbook listings.</div>
+    <div class="alert alert-error">You have reached the maximum of <%= TextbookListingsController.max_listings %> textbook listings.</div>
   <% end %>
 <div id="your_textbooks"><%= render 'your_textbooks' %></div>
 <% else %>

@@ -23,6 +23,6 @@ class TextbookListing < ActiveRecord::Base
   validates :title, presence: true, length: { maximum: 100 }
   validates :uid, format: { with: UID_REGEX }
   validates :description_of_condition, length: { maximum: 180 }
-  validates :email, presence: true, format: { with: EMAIL_REGEX }
+  validates :email, format: { with: EMAIL_REGEX }, length: { maximum: 100 }
   validates :name, presence: true
 end

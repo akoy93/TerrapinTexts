@@ -29,6 +29,7 @@
       </div>
     </div>
 
+    <% if validate_isbn(params[:isbn]) %>
     <div class="row-fluid">
       <div class="span4">
         <%= f.label :title %>
@@ -63,7 +64,8 @@
         <% end %>
       </div>
     </div>
-    
+    <% end %>    
+
     <%# if validate_isbn(params[:isbn]) %>
       <br />
       <h3>Listing Information</h3>
@@ -80,15 +82,15 @@
           <%= f.label :condition %>
           <%= f.select(:condition, options_for_select([["", nil], ["Like New", 1], ["Very Good", 2], ["Good", 3], ["Fair", 4], ["Poor", 5]])) %>
         </div>
-        <div class="span5">
+        <div class="span3">
+          <%= f.label :email, "Contact Email" %>
+          <%= f.text_field :email, value: current_user.email %>
+        </div>
+        <div class="span4">
           <%= f.label :description_of_condition, "(Optional) Brief Description: " %>
           <%= f.text_area :description_of_condition, class: "span12", rows: "4" %>
         </div>
-        <div class="center span2">
-          <br />
-          <br />
-          <%= f.submit "Create Listing", class: "center btn btn-large btn-primary" %>
-        </div>
+        <center><%= f.submit "Create Listing", class: "center btn btn-large btn-primary" %></center>
       </div>
       <% if @book_query %>
         <%= f.hidden_field :thumbnail, value: @book_query[:thumbnail].to_s %>

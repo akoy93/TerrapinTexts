@@ -14,7 +14,7 @@ class TextbookListing < ActiveRecord::Base
   # Squeezes spaces inside the string: "James   Bond  " => "James Bond"
   auto_strip_attributes :author, :description_of_condition, :publisher, :title, :squish => true
 
-  validates :author, presence: true, length: { maximum: 50 }
+  validates :author, presence: true, length: { maximum: 100 }
   validates :condition, presence: true
   validates :isbn, format: { with: ISBN_REGEX, message: "should be 13 digits." }
   validates :price, format: { with: PRICE_REGEX }, numericality: {greater_than: 0}
@@ -23,6 +23,6 @@ class TextbookListing < ActiveRecord::Base
   validates :title, presence: true, length: { maximum: 100 }
   validates :uid, format: { with: UID_REGEX }
   validates :description_of_condition, length: { maximum: 180 }
-  validates :email, presence: true, format: { with: EMAIL_REGEX }
+  validates :email, presence: true, format: { with: EMAIL_REGEX }, length: { maximum: 100 }
   validates :name, presence: true
 end
