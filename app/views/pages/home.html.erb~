@@ -9,8 +9,26 @@
   </p>
 </div>
 <br />
-<h3>Most recent textbook listing:</h3>
-<% @listings = TextbookListing.order("created_at").last %>
-<%= render 'browse' %>
+
+<h3>Most Recent Textbook Listing:</h3>
+<br />
+<table class="table table-striped">
+  <tr>
+    <th>Posted</th>
+    <th>Thumbnail</th>
+    <th>ISBN-13</th>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Publisher</th>
+    <th>Year</th>
+    <th>Condition</th>
+    <th>Price</th>
+    <th>Description</th>
+    <% if current_user %><th>Contact</th><% end %>
+  </tr>
+  <tbody id="listings-body">
+    <%= render TextbookListing.search.last %>
+  </tbody>
+</table>
 
 

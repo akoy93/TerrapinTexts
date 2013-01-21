@@ -1,5 +1,3 @@
 features to implement:
-  -> add about site on home page
-  -> add most recent listing to home page
   -> add user count to home page
   -> add sort by author last name?
