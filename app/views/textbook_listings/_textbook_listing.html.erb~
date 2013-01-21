@@ -1,5 +1,5 @@
 <tr>
-  <td><%= textbook_listing.created_at.strftime("%b %d, %Y") %></td>
+  <td><%= textbook_listing.created_at.in_time_zone("Eastern Time (US & Canada)").strftime('%m-%d %I:%M %p') %></td>
   <td><%= image_tag textbook_listing.thumbnail, alt: "thumbnail", width: "75" %></td>
   <td><%= textbook_listing.isbn %></td>
   <td><%= textbook_listing.title %></td>
@@ -9,13 +9,15 @@
   <td><%= condition_to_s textbook_listing.condition %></td>  
   <td class="price"><%= number_to_currency(textbook_listing.price) %></td>
   <td><%= textbook_listing.description_of_condition %></td>
-  <% if textbook_listing.uid == current_user.uid %>
-    <td><center><strong>You</strong><br /><%= image_tag(current_user.image, alt: "profile_picture") %></center></td>
-  <% else %>
-    <td><center><strong class="text-info"><%= textbook_listing.name.split.first %></strong><br />
-      <%= image_tag("https://graph.facebook.com/#{textbook_listing.uid}/picture", alt: "profile_picture") %>
-      <br />
-      <%= link_to (image_tag 'fb-glyphicon.png', alt: "fb icon", width: "20"), "http://www.facebook.com/#{textbook_listing.uid}", :class => "new-window" %> 
-      <%= link_to (image_tag 'mail-glyphicon.png', alt: "mail icon", width: "20"), '#', :class => "email", :id => "#{textbook_listing.email}" %>
+  <% if current_user %>
+    <% if textbook_listing.uid == current_user.uid %>
+      <td><center><strong>You</strong><br /><%= image_tag(current_user.image, alt: "profile_picture") %></center></td>
+    <% else %>
+      <td><center><strong class="text-info"><%= textbook_listing.name.split.first %></strong><br />
+        <%= image_tag("https://graph.facebook.com/#{textbook_listing.uid}/picture", alt: "profile_picture") %>
+        <br />
+        <%= link_to (image_tag 'fb-glyphicon.png', alt: "fb icon", width: "20"), "http://www.facebook.com/#{textbook_listing.uid}", :class => "new-window" %> 
+        <%= link_to (image_tag 'mail-glyphicon.png', alt: "mail icon", width: "20"), '#', :class => "email", :id => "#{textbook_listing.email}" %>
+    <% end %>
   <% end %>
 </tr>
