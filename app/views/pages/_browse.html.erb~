@@ -1,4 +1,4 @@
-<input type="hidden" name="q[s]" id="q_s" value=<%= if params[:q] then params[:q][:s] else "created_at+desc" end %>>
+<input type="hidden" name="q[s]" id="q_s" value="<%= h params[:q][:s] if params[:q] %>">
 <br />
 <table class="table table-striped" id="listings">
   <tr>
