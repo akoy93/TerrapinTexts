@@ -2,14 +2,14 @@ require "bundler/capistrano"
 
 server "umdsocialscheduler.com", :web, :app, :db, primary: true
 
-set :application, "blog"
+set :application, "texts4terps"
 set :user, "root"
 set :deploy_to, "/home/rails/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
 
 set :scm, "git"
-set :repository, "git@github.com:ryanb/#{application}.git"
+set :repository, "git@github.com:akoy93/texts4terps.git"
 set :branch, "master"
 
 default_run_options[:pty] = true
