@@ -11,13 +11,14 @@
           <%= link_to 'X', t, method: :delete, confirm: "Are you sure you want to delete this listing?", class: "btn close" %>
           <div class="row-fluid">
             <div class="span9 media-body pull-left">
+              <strong>Date Posted:</strong> <%= t[:created_at].in_time_zone("Eastern Time (US & Canada)").strftime("%b %d, %Y") %>
               <strong>Title:</strong> <%= t[:title].to_s %><br />
               <strong>Author(s):</strong> <%= t[:author].to_s %><br />
               <strong>Publisher:</strong> <%= t[:publisher].to_s %><br />
               <strong>Publication Year:</strong> <%= t[:publication_year].to_s %><br />
               <strong>Condition:</strong> <%= condition_to_s(t[:condition]) %><br />
               <strong>Price:</strong> <%= number_to_currency(t[:price]) %><br />
-              <strong>Email</strong> <%= t[:email].to_s %><br />
+              <strong>Email:</strong> <%= t[:email].to_s %><br />
               <strong>ISBN:</strong> <%= t[:isbn].to_s %><br />
               <strong>Listing Description:</strong> <%= t[:description_of_condition].to_s %>
             </div>

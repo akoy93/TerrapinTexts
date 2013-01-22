@@ -11,6 +11,7 @@
           <%= link_to 'X', t, method: :delete, confirm: "Are you sure you want to delete this listing?", class: "btn close" %>
           <div class="row-fluid">
             <div class="span9 media-body pull-left">
+              <strong>Date Posted:</strong> <%= t[:created_at].in_time_zone("Eastern Time (US & Canada)").strftime("%b %d, %Y") %><br />
               <strong>Title:</strong> <%= t[:title].to_s %><br />
               <strong>Author(s):</strong> <%= t[:author].to_s %><br />
               <strong>Publisher:</strong> <%= t[:publisher].to_s %><br />
