@@ -3,7 +3,7 @@ require "bundler/capistrano"
 server "173.245.5.162:2200", :web, :app, :db, primary: true
 
 set :application, "texts4terps"
-set :user, "root"
+set :user, "texts4terps"
 set :deploy_to, "/home/rails/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
