@@ -1,8 +1,8 @@
 <VirtualHost *:80>
   # ServerName example.com
   # ServerAlias *.example.com
-  DocumentRoot /home/deployer/apps/blog/current/public
-  <Directory "/home/deployer/apps/blog/current/public">
+  DocumentRoot /home/rails/apps/texts4terps/current/public
+  <Directory "/home/rails/apps/texts4terps/current/public">
     Options FollowSymLinks
     AllowOverride None
     Order allow,deny
