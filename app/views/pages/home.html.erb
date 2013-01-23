@@ -26,8 +26,7 @@
     <% if current_user %><th>Contact</th><% end %>
   </tr>
   <tbody id="listings-body">
-    <%= render TextbookListing.search.result.last %>
+    <% listing = TextbookListing.search.result.last %>
+    <%= render :partial => listing if listing %>
   </tbody>
 </table>
-
-

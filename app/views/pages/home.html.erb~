@@ -8,7 +8,6 @@
     </a>
   </p>
 </div>
-<br />
 
 <h3>Most Recent Textbook Listing:</h3>
 <br />
@@ -27,8 +26,7 @@
     <% if current_user %><th>Contact</th><% end %>
   </tr>
   <tbody id="listings-body">
-    <%= render TextbookListing.search.result.last %>
+    <% listing = TextbookListing.search.result.last || TextbookListing.new %>
+    <%= render listing %>
   </tbody>
 </table>
-
-
