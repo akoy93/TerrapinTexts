@@ -1,5 +1,5 @@
 <VirtualHost *:80>
-  # ServerName example.com
+  ServerName 173.245.5.162
   # ServerAlias *.example.com
   DocumentRoot /home/rails/apps/texts4terps/current/public
   <Directory "/home/rails/apps/texts4terps/current/public">
