@@ -1,6 +1,6 @@
 require "bundler/capistrano"
 
-server "umdsocialscheduler.com", :web, :app, :db, primary: true
+server "173.245.5.162:2200", :web, :app, :db, primary: true
 
 set :application, "texts4terps"
 set :user, "root"
