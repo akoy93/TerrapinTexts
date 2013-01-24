@@ -68,7 +68,6 @@ $(function() {
 
   // preserve search when sorting
   $("#listings tr th a").live("click", function() {
-    $("#q_s").val('price asc');
     $.getScript(this.href);
     return false;
   });

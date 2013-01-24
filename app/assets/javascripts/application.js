@@ -41,7 +41,7 @@ function copyText (text) {
 $(function() {
   $('#buy_search').keyup(function(e) {
     keyCounter++;
-    if (keyCounter % 4 == 0 || e.which == 8){
+    if (keyCounter % 3 == 0 || e.which == 8){
       e.preventDefault();
 
       if (runningRequest) {

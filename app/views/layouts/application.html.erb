@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= full_title(yield(:title), "Texts4Terps") %></title>
+  <title><%= full_title(yield(:title), "TerrapinTexts") %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -11,7 +11,7 @@
   <header class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <a class="brand" href=<%= root_path %>><strong>Texts4Terps</strong> <%= image_tag('book-glyphicon.png', alt: "book icon", :size => "16x16") %></a>
+        <a class="brand" href=<%= root_path %>><strong>TerrapinTexts</strong> <%= image_tag('book-glyphicon.png', alt: "book icon", :size => "16x16") %></a>
         <ul class="nav">
           <li<%=' class=active' if yield(:title) == "Home" %>><%= link_to "Home", root_path %></li>
           <li<%=' class=active' if yield(:title) == "Buy" %>><%= link_to "Buy", buy_path %></li>
