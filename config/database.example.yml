@@ -20,8 +20,11 @@ test:
 
 production:
   adapter: mysql2
-  encoding: unicode
+  encoding: utf8
+  reconnect: false
   database: texts4terps_production
   pool: 5
   username: root
   password:
+  host: localhost
+
