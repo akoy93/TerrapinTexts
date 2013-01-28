@@ -1,6 +1,6 @@
 module ApplicationHelper
   def full_title(page_title, base_title)
-    if page_title.empty? || page_title == "Home"
+    if page_title.empty? || page_title == "Home" || page_title == "About"
       base_title
     else
       base_title + " | " + page_title
@@ -14,5 +14,10 @@ module ApplicationHelper
     else
       "<li>#{menu_option}</li>"
     end
+  end
+
+  def condition_to_s(i)
+    conditions = ["Poor", "Fair", "Good", "Very Good", "Like New"]
+    conditions[i.to_i * -1]
   end
 end

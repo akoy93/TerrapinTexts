@@ -8,6 +8,9 @@ class PagesController < ApplicationController
 
   def home
   end
+  
+  def about
+  end
 
   def buy
     @friends = current_user.friends if params[:friends]

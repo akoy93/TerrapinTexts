@@ -26,7 +26,11 @@
     </div>
   </header>
   <div class="container">
-    <h1 class="pull-left"><%= yield(:title) + " Textbooks" if yield(:title) != "Home" %></h1>
+    <% if yield(:title) != "Home" && yield(:title) != "About" %>
+      <h1 class="pull-left"><%= yield(:title) + " Textbooks" %></h1>
+    <% elsif yield(:title) == "About" %>
+      <h1 class="pull-left">About TerrapinTexts</h1>
+    <% end %>
     <div class="container-fluid">
     <div id="user_nav" class="pull-right">
       <% if current_user %>
@@ -42,9 +46,14 @@
     <%= yield %>
     <%= debug(params) if Rails.env.development? %>
     <footer class="footer">
+      <div class="pull-left">
       <small>
         Developed by <a href="mailto:akoy93@terpmail.umd.edu">Albert Koy</a>, creator of <a href="http://www.umdsocialscheduler.com">UMD Social Scheduler</a>
       </small>
+      </div>
+      <div class="pull-right">
+        <%= link_to "About", about_path %>
+      </div>
     </footer>
   </div>
 </body>

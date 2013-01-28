@@ -1,0 +1,12 @@
+<% provide(:title, "About") %>
+<br />
+<div class="hero-unit">
+  <p>
+As a student of UMCP, I've come to realize that, in the used textbook market, our bookstores serve only one purpose: connecting buyers and sellers. However, on a campus as large as ours, with almost every student being an active user of Facebook, buyers and sellers are already connected--they just don't know who they're connected with. As a result, bookstores are able to take ridiculous margins on used textbook sales by capitalizing on our lack of information. TerrapinTexts aims to solve this problem by providing a forum for the exchange of textbooks among students. Here, you can list your unneeded textbooks for sale as well as browse through listings to find the textbooks that you do need--a free, and hopefully serviceable, alternative to the school bookstore.
+  </p>
+  <p class="pull-right"><em>
+    Albert Koy<br />
+    Fellow Student
+  </em></p>
+</p>
+</div>

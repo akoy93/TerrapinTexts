@@ -1,13 +1,15 @@
 Texts4terps::Application.routes.draw do
+  resources :search_suggestions
+
   resources :textbook_listings
 
   root to: 'pages#home'
 
-  match '/textbook_listings/sell', to: 'pages#sell'
   match '/get_book_fields_ajax', to: 'pages#get_book_fields_ajax'
   match '/buy', to: 'pages#buy'
   match '/sell', to: 'pages#sell'
   match '/search', to: 'pages#buy'
+  match '/about', to: 'pages#home'
 
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
