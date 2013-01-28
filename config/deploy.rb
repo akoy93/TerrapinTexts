@@ -1,5 +1,8 @@
 require "bundler/capistrano"
 
+set :whenever_command, "bundle exec whenever"
+require "whenever/capistrano"
+
 server "173.245.5.162:2200", :web, :app, :db, primary: true
 
 set :application, "texts4terps"
