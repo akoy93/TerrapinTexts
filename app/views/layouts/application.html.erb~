@@ -28,6 +28,8 @@
   <div class="container">
     <% if yield(:title) != "Home" && yield(:title) != "About" %>
       <h1 class="pull-left"><%= yield(:title) + " Textbooks" %></h1>
+    <% elsif yield(:title) == "About" %>
+      <h1 class="pull-left">About TerrapinTexts</h1>
     <% end %>
     <div class="container-fluid">
     <div id="user_nav" class="pull-right">
