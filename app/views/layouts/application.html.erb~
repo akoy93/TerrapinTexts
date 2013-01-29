@@ -48,13 +48,14 @@
     <footer class="footer">
       <div class="pull-left">
       <small>
-        Developed by <a href="mailto:akoy93@terpmail.umd.edu">Albert Koy</a>, creator of <a href="http://www.umdsocialscheduler.com">UMD Social Scheduler</a>
+        Developed by <a href="mailto:info@terrapintexts.com">Albert Koy</a>, creator of <a href="http://www.umdsocialscheduler.com">UMD Social Scheduler</a>
       </small>
       </div>
       <div class="pull-right">
         <%= link_to "About", about_path %>
       </div>
     </footer>
+    <br />
   </div>
 </body>
 </html>

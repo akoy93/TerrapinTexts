@@ -6,6 +6,19 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <% render 'layouts/shim' %>
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-38053333-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
 </head>
 <body>
   <header class="navbar navbar-fixed-top">
@@ -48,7 +61,7 @@
     <footer class="footer">
       <div class="pull-left">
       <small>
-        Developed by <a href="mailto:akoy93@terpmail.umd.edu">Albert Koy</a>, creator of <a href="http://www.umdsocialscheduler.com">UMD Social Scheduler</a>
+        Developed by <a href="mailto:info@terrapintexts.com">Albert Koy</a>, creator of <a href="http://www.umdsocialscheduler.com">UMD Social Scheduler</a>
       </small>
       </div>
       <div class="pull-right">
