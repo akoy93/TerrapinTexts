@@ -24,7 +24,6 @@ class TextbookListingsController < ApplicationController
   end
 
   def create
-    puts current_user.num_listings
     if current_user.num_listings < MAX_LISTINGS
       exit unless current_user # security check
       params[:textbook_listing][:isbn] = params[:isbn]

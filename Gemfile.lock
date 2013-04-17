@@ -33,9 +33,10 @@ GEM
     arel (3.0.2)
     auto_strip_attributes (1.1)
       activerecord (>= 3.0)
+    bootstrap-datepicker-rails (1.0.0.3)
+      railties (>= 3.0)
     bootstrap-sass (2.0.0)
     builder (3.0.4)
-    calendar_date_select (1.16.4)
     capistrano (2.14.1)
       highline
       net-scp (>= 1.0.0)
@@ -206,8 +207,8 @@ PLATFORMS
 DEPENDENCIES
   annotate (~> 2.4.1.beta)
   auto_strip_attributes (~> 1.0)
+  bootstrap-datepicker-rails
   bootstrap-sass (= 2.0.0)
-  calendar_date_select
   capistrano
   capybara (= 1.1.2)
   coffee-rails (= 3.2.2)
