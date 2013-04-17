@@ -57,5 +57,7 @@ module Texts4terps
     config.assets.version = '1.0'
 
     config.middleware.insert_before 0, "SearchSuggestions"
+
+    config.time_zone = "Eastern Time (US & Canada)"
   end
 end

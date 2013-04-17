@@ -30,6 +30,7 @@ class TextbookListingsController < ApplicationController
       params[:textbook_listing][:isbn] = params[:isbn]
       params[:textbook_listing][:name] = current_user.name
       params[:textbook_listing][:uid] = current_user.uid
+
       @textbook_listing = TextbookListing.new(params[:textbook_listing])
       if @textbook_listing.save
         redirect_to sell_path

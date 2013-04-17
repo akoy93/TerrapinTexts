@@ -18,13 +18,16 @@
   <div id="search_results"></div>
   <div class="row-fluid">
     <div class="span10"><h3>Textbook Listings</h3></div>
-    <% if current_user %>
       <div class="span2">
+        <% if current_user %>
+          <label class="checkbox">
+            <input type="checkbox" name="friends" value="true"> <strong>Facebook friends only?</strong><br />
+          </label>
+        <% end %>
         <label class="checkbox">
-          <input type="checkbox" name="friends" value="true"> <strong>Facebook friends only?</strong><br />
+          <input type="checkbox" name="available" value="true"> <strong>Available listings only?</strong><br />
         </label>
       </div>
-    <% end %>
   </div>
   <div id="textbook_listings"><%= render 'browse' %></div>
 <% end %>

@@ -73,7 +73,7 @@
       <div class="row-fluid">
         <div class="span3">
           <%= f.label :date_available, "Date Available For Sale " %>
-          <%= f.text_field :date_available, value: Time.now.strftime("%m/%d/%Y") %>
+          <%= f.date_select :date_available, :start_year => Time.now.year, :end_year => Time.now.year + 1 %>
         </div>
         <div class="span3">
           <%= f.label :price %>

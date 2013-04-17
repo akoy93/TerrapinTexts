@@ -1,5 +1,6 @@
 <tr>
-  <td><%= textbook_listing.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%b %d, %Y") %></td>
+  <!td><!%= textbook_listing.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%b %d, %Y") %><!/td>
+  <td><%= textbook_listing.date_available.strftime("%b %d, %Y") %></td>
   <td><%= image_tag textbook_listing.thumbnail, alt: "thumbnail", width: "75" %></td>
   <td><%= textbook_listing.isbn %></td>
   <td><%= textbook_listing.title %></td>

@@ -6,7 +6,8 @@ class TextbookListing < ActiveRecord::Base
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   attr_accessible :author, :condition, :description_of_condition, :isbn, :price, 
-    :publication_year, :publisher, :title, :uid, :thumbnail, :email, :course, :name
+    :publication_year, :publisher, :title, :uid, :thumbnail, :email, :course, :name, 
+    :date_available
 
   # Normal usage where " aaa   bbb\t " changes to "aaa bbb"
   auto_strip_attributes :description_of_condition, :isbn, :author, 
@@ -25,4 +26,5 @@ class TextbookListing < ActiveRecord::Base
   validates :description_of_condition, length: { maximum: 180 }
   validates :email, format: { with: EMAIL_REGEX }, length: { maximum: 100 }
   validates :name, presence: true
+  validates :date_available, presence: true
 end

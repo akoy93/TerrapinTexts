@@ -2,15 +2,16 @@
 <br />
 <table class="table table-striped" id="listings">
   <tr>
-    <th><%= sort_link @search, :created_at, "Posted", {friends: params[:friends]} %></th>
+    <!th><!%= sort_link @search, :created_at, "Posted", {friends: params[:friends]} %><!/th>
+    <th><%= sort_link @search, :date_available, "Available", {friends: params[:friends], available: params[:available]} %></th>
     <th>Thumbnail</th>
     <th>ISBN-13</th>
-    <th><%= sort_link @search, :title, "Title", {friends: params[:friends]}  %></th>
-    <th><%= sort_link @search, :author, "Author(s)", {friends: params[:friends]}  %></th>
-    <th><%= sort_link @search, :publisher, "Publisher", {friends: params[:friends]}  %></th>
-    <th><%= sort_link @search, :publication_year, "Year", {friends: params[:friends]}  %></th>
-    <th><%= sort_link @search, :condition, "Condition", {friends: params[:friends]}  %></th>
-    <th><%= sort_link @search, :price, "Price", {friends: params[:friends]}  %></th>
+    <th><%= sort_link @search, :title, "Title", {friends: params[:friends], available: params[:available]}  %></th>
+    <th><%= sort_link @search, :author, "Author(s)", {friends: params[:friends], available: params[:available]}  %></th>
+    <th><%= sort_link @search, :publisher, "Publisher", {friends: params[:friends], available: params[:available]}  %></th>
+    <th><%= sort_link @search, :publication_year, "Year", {friends: params[:friends], available: params[:available]}  %></th>
+    <th><%= sort_link @search, :condition, "Condition", {friends: params[:friends], available: params[:available]}  %></th>
+    <th><%= sort_link @search, :price, "Price", {friends: params[:friends], available: params[:available]}  %></th>
     <th>Description</th>
     <% if current_user %><th>Contact</th><% end %>
   </tr>

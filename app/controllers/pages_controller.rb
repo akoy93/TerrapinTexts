@@ -18,7 +18,7 @@ class PagesController < ApplicationController
     if params[:q] && params[:q][params[:q].keys.first] =~ /^\d{1,}$/ 
       generate_book_preview(params[:q][params[:q].keys.first])
     end
-    generate_search_results(params[:friends])
+    generate_search_results(params[:friends], params[:available])
   end
 
   def sell
@@ -34,15 +34,14 @@ class PagesController < ApplicationController
     end 
   end
 
-  def generate_search_results(filter)
+  def generate_search_results(friends_filter, available_filter)
     @search = TextbookListing.search(params[:q])
+    @listings = @search.result.order('created_at DESC')
     # filter only friends
-    if filter == "true"
-      @listings = Kaminari.paginate_array(@search.result.order('created_at DESC').select { |l| l if @friends.include? l.uid }).page(params[:page]).per(10)
-    else
-      # filter all
-      @listings = @search.result.order('created_at DESC').page(params[:page]).per(10)
-    end
+    @listings.select! { |l| l if @friends.include? l.uid } if friends_filter == "true"
+    # filter only available
+    @listings.select! { |l| l if l.date_available <= Date.today } if available_filter == "true"
+    @listings = Kaminari.paginate_array(@listings).page(params[:page]).per(10)
   end
 
   def get_book_fields_ajax
