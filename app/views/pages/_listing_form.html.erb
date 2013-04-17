@@ -71,7 +71,11 @@
       <h3>Listing Information</h3>
       <br />
       <div class="row-fluid">
-        <div class="span2">
+        <div class="span3">
+          <%= f.label :date_available, "Date Available For Sale " %>
+          <%= f.text_field :date_available, value: Time.now.strftime("%m/%d/%Y") %>
+        </div>
+        <div class="span3">
           <%= f.label :price %>
           <div class="input-prepend">
             <span class="add-on">$</span>
@@ -86,11 +90,19 @@
           <%= f.label :email, "Contact Email" %>
           <%= f.text_field :email, value: current_user.email %>
         </div>
+      </div>
+      <div class="row-fluid">
         <div class="span4">
           <%= f.label :description_of_condition, "(Optional) Brief Description: " %>
           <%= f.text_area :description_of_condition, class: "span12", rows: "4" %>
         </div>
-        <%= f.submit "Create Listing", class: "center btn btn-large btn-primary" %>
+        <div class="span6"><br /></div>
+        <div class="span2">
+          <br />
+          <br />
+          <br />
+          <%= f.submit "Create Listing", class: "center btn btn-large btn-primary" %>
+        </div>
       </div>
       <% if @book_query %>
         <%= f.hidden_field :thumbnail, value: @book_query[:thumbnail].to_s %>

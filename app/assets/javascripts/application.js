@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+//= require bootstrap-datepicker
 
 var runningRequest = false;
 var request;
@@ -92,4 +93,7 @@ $(function() {
   
   handle_textbook_listing_isbn();
   handle_new_textbook_listing();
+
+  // add date picker to sell form
+  $('#textbook_listing_date_available').datepicker()
 });

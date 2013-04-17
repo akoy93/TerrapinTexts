@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130118070057) do
+ActiveRecord::Schema.define(:version => 20130417011459) do
 
   create_table "search_suggestions", :force => true do |t|
     t.string   "term"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20130118070057) do
     t.string   "email"
     t.string   "course"
     t.string   "name"
+    t.date     "date_available"
   end
 
   create_table "users", :force => true do |t|
