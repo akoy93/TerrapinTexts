@@ -39,10 +39,12 @@
     </div>
   </header>
   <div class="container">
-    <% if yield(:title) != "Home" && yield(:title) != "About" %>
+    <% if yield(:title) != "Home" && yield(:title) != "About" && yield(:title) != "Guidelines" %>
       <h1 class="pull-left"><%= yield(:title) + " Textbooks" %></h1>
     <% elsif yield(:title) == "About" %>
       <h1 class="pull-left">About TerrapinTexts</h1>
+    <% elsif yield(:title) == "Guidelines" %>
+      <h1 class="pull-left">TerrapinTexts Usage Guidelines</h1>
     <% end %>
     <div class="container-fluid">
     <div id="user_nav" class="pull-right">
@@ -65,6 +67,8 @@
       </small>
       </div>
       <div class="pull-right">
+        <%= link_to "Guidelines", guidelines_path %>
+        |
         <%= link_to "About", about_path %>
       </div>
     </footer>

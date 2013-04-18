@@ -16,7 +16,7 @@ jQuery ->
   if $('.pagination').length
     $(window).scroll ->
       url = $('[rel=next]').attr('href')
-      if url && $(window).scrollTop() > $(document).height() - $(window).height() - 250
+      if url && $(window).scrollTop() > $(document).height() - $(window).height() - 150
         $('.pagination').text("Fetching more listings...")
         $.getScript(url)
         return false;

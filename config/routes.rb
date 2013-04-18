@@ -10,6 +10,7 @@ Texts4terps::Application.routes.draw do
   match '/sell', to: 'pages#sell'
   match '/search', to: 'pages#buy'
   match '/about', to: 'pages#about'
+  match '/guidelines', to: 'pages#guidelines'
 
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')

@@ -12,6 +12,9 @@ class PagesController < ApplicationController
   def about
   end
 
+  def guidelines
+  end
+
   def buy
     @friends = current_user.friends if params[:friends]
     params[:q].each { |k,v| params[:q][k].strip! } if params[:q]
@@ -41,12 +44,7 @@ class PagesController < ApplicationController
     @listings.select! { |l| l if @friends.include? l.uid } if friends_filter == "true"
     # filter only available
     @listings.select! { |l| l if l.date_available <= Date.today } if available_filter == "true"
-
-    if @listings.length > 10
-      @listings = Kaminari.paginate_array(@listings).page(params[:page]).per(10)
-    else
-      @listings = Kaminari.paginate_array(@listings).page(params[:page])
-    end
+    @listings = Kaminari.paginate_array(@listings).page(params[:page]).per(10)
   end
 
   def get_book_fields_ajax
