@@ -46,7 +46,7 @@ function add_datepicker() {
 $(function() {
   $('#buy_search').keyup(function(e) {
     keyCounter++;
-    if (keyCounter % 3 == 0 || e.which == 8){
+    //if (keyCounter % 3 == 0 || e.which == 8){
       e.preventDefault();
 
       if (runningRequest) {
@@ -57,7 +57,7 @@ $(function() {
       request = $.get($("#buy_search").attr("action"), $("#buy_search").serialize(), function(data) {
         runningRequest = false;
       }, "script");
-    }
+    //}
   });
 
   $("#buy_search").submit(function() {

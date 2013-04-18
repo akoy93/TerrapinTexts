@@ -41,7 +41,12 @@ class PagesController < ApplicationController
     @listings.select! { |l| l if @friends.include? l.uid } if friends_filter == "true"
     # filter only available
     @listings.select! { |l| l if l.date_available <= Date.today } if available_filter == "true"
-    @listings = Kaminari.paginate_array(@listings).page(params[:page]).per(10)
+
+    if @listings.length > 10
+      @listings = Kaminari.paginate_array(@listings).page(params[:page]).per(10)
+    else
+      @listings = Kaminari.paginate_array(@listings).page(params[:page])
+    end
   end
 
   def get_book_fields_ajax
