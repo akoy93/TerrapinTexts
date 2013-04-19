@@ -73,7 +73,7 @@
       <div class="row-fluid">
         <div class="span3">
           <%= f.label :date_available, "Date Available For Sale " %>
-          <%= f.text_field :date_available, type: "Date", value: Date.today %>
+          <%= f.text_field :date_available, value: Date.today, class: "ui-datepicker", 'data-behaviour' => 'datepicker' %>
         </div>
         <div class="span3">
           <%= f.label :price %>

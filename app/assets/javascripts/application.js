@@ -40,7 +40,11 @@ function copyText (text) {
 }
 
 function add_datepicker() {
-  $('#textbook_listing_date_available').datepicker()
+  $("[data-behaviour~='datepicker']").datepicker({
+    "format": "yyyy-mm-dd",
+    "weekStart": 1,
+    "autoclose": true
+  });
 }
 
 $(function() {
@@ -97,5 +101,5 @@ $(function() {
   
   handle_textbook_listing_isbn();
   handle_new_textbook_listing();
-  // add_datepicker();
+  add_datepicker();
 });
