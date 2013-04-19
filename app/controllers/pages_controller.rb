@@ -39,12 +39,20 @@ class PagesController < ApplicationController
 
   def generate_search_results(friends_filter, available_filter)
     @search = TextbookListing.search(params[:q])
-    @listings = @search.result.order('created_at DESC')
-    # filter only friends
-    @listings.select! { |l| l if @friends.include? l.uid } if friends_filter == "true"
-    # filter only available
-    @listings.select! { |l| l if l.date_available <= Date.today } if available_filter == "true"
-    @listings = Kaminari.paginate_array(@listings).page(params[:page]).per(10)
+    # filters
+    if friends_filter == "true" && available_filter == "true"
+      @listings = Kaminari.paginate_array(@search.result.order('created_at DESC').
+        select { |l| l if @friends.include? l.uid && l.date_available <= Date.today }).page(params[:page]).per(10)
+    elsif friends_filter == "true" && available_filter != "true"
+      @listings = Kaminari.paginate_array(@search.result.order('created_at DESC').
+        select { |l| l if @friends.include? l.uid }).page(params[:page]).per(10)
+    elsif friends_filter != "true" && available_filter == "true"
+      @listings = Kaminari.paginate_array(@search.result.order('created_at DESC').
+        select { |l| l if l.date_available <= Date.today }).page(params[:page]).per(10)
+    else
+      # show all
+      @listings = @search.result.order('created_at DESC').page(params[:page]).per(10)
+    end
   end
 
   def get_book_fields_ajax
