@@ -42,7 +42,7 @@ class PagesController < ApplicationController
     # filters
     if friends_filter == "true" && available_filter == "true"
       @listings = Kaminari.paginate_array(@search.result.order('created_at DESC').
-        select { |l| l if @friends.include? l.uid && l.date_available <= Date.today }).page(params[:page]).per(10)
+        select { |l| l if @friends.include?(l.uid) && l.date_available <= Date.today }).page(params[:page]).per(10)
     elsif friends_filter == "true" && available_filter != "true"
       @listings = Kaminari.paginate_array(@search.result.order('created_at DESC').
         select { |l| l if @friends.include? l.uid }).page(params[:page]).per(10)
